@@ -9,4 +9,8 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-export default firebaseConfig;
+const adminConfig = {
+  adminUID: process.env.REACT_APP_ADMIN_UID,
+};
+
+export { firebaseConfig, adminConfig };

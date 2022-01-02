@@ -1,0 +1,30 @@
+{
+  "js": {
+    "label": "JS",
+    "icon": "fab fa-js"
+  },
+  "git": {
+    "label": "Git",
+    "icon": "fab fa-git-alt"
+  },
+  "html": {
+    "label": "HTML",
+    "icon": "fab fa-html5"
+  },
+  "css": {
+    "label": "CSS",
+    "icon": "fab fa-css3-alt"
+  },
+  "react": {
+    "label": "ReactJS",
+    "icon": "fab fa-react"
+  },
+  "sass": {
+    "label": "Sass",
+    "icon": "fab fa-sass"
+  },
+  "unity": {
+    "label": "Unity",
+    "icon": "fab fa-unity"
+  }
+}

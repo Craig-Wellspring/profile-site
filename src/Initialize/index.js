@@ -1,38 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import styled from 'styled-components';
+import Navigation from '../components/panels/Navigation';
+import Routes from '../routes';
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 0px 20px;
+
+  overflow: auto;
+`;
 
 function Initialize() {
-  const [domWriting, setDomWriting] = useState('Nothing Here!');
-
-  const handleClick = (e) => {
-    console.warn(`You clicked ${e.target.id}`);
-    setDomWriting(`You clicked ${e.target.id}! Check the Console!`);
-  };
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authedUser) => {
+      if (authedUser) {
+        const userInfoObj = {
+          fullName: authedUser.displayName,
+          profileImage: authedUser.photoURL,
+          uid: authedUser.uid,
+          user: authedUser.email.split('@')[0],
+        };
+        setUser(userInfoObj);
+      } else if (user || user === null) {
+        setUser(false);
+      }
+    });
+  }, []);
 
   return (
-    <div className="App">
-      <h2>INSIDE APP COMPONENT</h2>
-      <div>
-        <button
-          type="button"
-          id="this-button"
-          className="btn btn-info"
-          onClick={handleClick}
-        >
-          I am THIS button
-        </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          id="that-button"
-          className="btn btn-primary mt-3"
-          onClick={handleClick}
-        >
-          I am THAT button
-        </button>
-      </div>
-      <h3>{domWriting}</h3>
-    </div>
+    <AppContainer>
+      <Navigation />
+      <Routes />
+    </AppContainer>
   );
 }
 

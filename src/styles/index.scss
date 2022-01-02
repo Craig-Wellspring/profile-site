@@ -1,6 +1,189 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-@import 'globals';
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background-color: $favColor !important;
+  background-image: url(../resources/images/background.png);
+  color: $textColor !important;
+  font-family: 'Chakra Petch' !important;
+}
+
+.panel {
+  background-color: $backgroundColorFaded;
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    Calc(100% - 10px) 0,
+    100% 10px,
+    100% Calc(100% - 10px),
+    Calc(100% - 10px) 100%,
+    10px 100%,
+    0% Calc(100% - 10px),
+    0 10px
+  );
+  padding: 20px;
+}
+
+.panel-header {
+  padding: 5px;
+}
+
+.section {
+  background-color: $panelColor;
+  color: $textColor;
+
+  padding: 20px;
+  border: 1px solid $textColor;
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    Calc(100% - 10px) 0,
+    100% 10px,
+    100% Calc(100% - 10px),
+    Calc(100% - 10px) 100%,
+    10px 100%,
+    0% Calc(100% - 10px),
+    0 10px
+  );
+}
+
+.input-field {
+  background-color: $backgroundColor;
+  color: $textColor;
+}
+
+textarea {
+  background-color: $panelColor;
+  color: $textColor;
+  text-align: left;
+
+  padding: 5px;
+}
+
+textarea::placeholder { 
+  color: $textColor;
+  text-align: center;
+}
+
+input[type=text] {
+  background-color: $panelColor;
+  color: $textColor;
+  text-align: center;
+  width: 100%;
+}
+
+input::placeholder {
+  color: $textColor;
+  text-align: center;
+}
+
+.blue-button {
+  background-color: $highlightColor;
+  color: $textColor;
+
+  padding: 6px 16px;
+  border: 0;
+  clip-path: polygon(
+    0 5px,
+    5px 0,
+    Calc(100% - 5px) 0,
+    100% 5px,
+    100% Calc(100% - 5px),
+    Calc(100% - 5px) 100%,
+    5px 100%,
+    0% Calc(100% - 5px),
+    0 5px
+  );
+
+  &:active {
+    background-color: $warningColor;
+  }
+}
+
+.orange-button {
+  background-color: $warningColor;
+  color: $textColor;
+
+  padding: 6px 16px;
+  border: 0;
+  clip-path: polygon(
+    0 5px,
+    5px 0,
+    Calc(100% - 5px) 0,
+    100% 5px,
+    100% Calc(100% - 5px),
+    Calc(100% - 5px) 100%,
+    5px 100%,
+    0% Calc(100% - 5px),
+    0 5px
+  );
+
+  &:active {
+    background-color: $highlightColor;
+  }
+}
+
+.transparent-button {
+  background-color: transparent;
+  color: $textColor;
+
+  border: 0;
+}
+
+svg {
+  width: 100%;
+  fill: $textColor;
+}
+
+.bgColor {
+  background-color: $backgroundColorFaded;
+}
+
+.vertical-timeline {
+  padding: 15px 0px 0px 0px !important;
+}
+
+.blur-filter {
+  filter: blur(4px);
+  clip-path: none !important;
+  border-radius: 20px;
+}
+
+.beveled-border {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    Calc(100% - 10px) 0,
+    100% 10px,
+    100% Calc(100% - 10px),
+    Calc(100% - 10px) 100%,
+    10px 100%,
+    0% Calc(100% - 10px),
+    0 10px
+  );
+}
+
+.navlink {
+  color: $textColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $highlightColor;
+    text-shadow: 2px 2px $backgroundColorFaded;
+  }
+
+  &:active {
+    color: $warningColor;
+    text-shadow: 2px 2px $backgroundColorFaded;
+  }
 }

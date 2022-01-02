@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
+import { BrowserRouter } from 'react-router-dom';
+import firebase from 'firebase/app';
 import Initialize from './Initialize';
 import reportWebVitals from './reportWebVitals';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { firebaseConfig } from './api/apiKeys';
+
+firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Initialize />
+    <BrowserRouter>
+      <Initialize />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
