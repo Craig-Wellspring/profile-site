@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Biography from '../components/panels/Biography';
 import HobAccPanel from '../components/panels/HobAccPanel';
-import TimelineShort from '../components/panels/TimelineShort';
-import portrait from '../resources/images/portrait.jpeg';
+// import TimelineShort from '../components/panels/TimelineShort';
+// import portrait from '../resources/images/portrait.jpeg';
 
 const Body = styled.div`
   display: flex;
@@ -37,22 +37,22 @@ const InfoSection = styled.div`
   }
 `;
 
-const Photo = styled.img`
-  max-width: 250px;
-  max-height: 250px;
-  width: 100%;
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    Calc(100% - 10px) 0,
-    100% 10px,
-    100% Calc(100% - 10px),
-    Calc(100% - 10px) 100%,
-    10px 100%,
-    0% Calc(100% - 10px),
-    0 10px
-  );
-`;
+// const Photo = styled.img`
+//   max-width: 250px;
+//   max-height: 250px;
+//   width: 100%;
+//   clip-path: polygon(
+//     0 10px,
+//     10px 0,
+//     Calc(100% - 10px) 0,
+//     100% 10px,
+//     100% Calc(100% - 10px),
+//     Calc(100% - 10px) 100%,
+//     10px 100%,
+//     0% Calc(100% - 10px),
+//     0 10px
+//   );
+// `;
 
 const HobAccSection = styled.div`
   display: flex;
@@ -62,9 +62,9 @@ const HobAccSection = styled.div`
   justify-content: center;
 `;
 
-const TimelinePanel = styled.div`
-  max-width: 400px;
-`;
+// const TimelinePanel = styled.div`
+//   max-width: 400px;
+// `;
 
 export default function About() {
   return (
@@ -72,7 +72,7 @@ export default function About() {
       <Body>
         <BioPanel>
           <InfoSection className="section">
-            <Photo src={portrait} alt="portrait" />
+            {/* <Photo src={portrait} alt="portrait" /> */}
             <Biography />
           </InfoSection>
 
@@ -81,9 +81,9 @@ export default function About() {
           </HobAccSection>
         </BioPanel>
 
-        <TimelinePanel>
+        {/* <TimelinePanel>
           <TimelineShort />
-        </TimelinePanel>
+        </TimelinePanel> */}
       </Body>
     </div>
   );

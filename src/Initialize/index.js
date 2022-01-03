@@ -12,9 +12,9 @@ const AppContainer = styled.div`
   align-items: center;
   text-align: center;
 
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
 
-  overflow: auto;
+  /* overflow: auto; */
 `;
 
 function Initialize() {
