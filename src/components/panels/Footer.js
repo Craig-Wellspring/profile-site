@@ -17,7 +17,7 @@ const NavButton = styled.a`
 
 export default function Footer() {
   return (
-    <>
+    <div className="section">
       <Body>
         <div>
           This website was developed using ReactJS, Sass, ThreeJS, and Google
@@ -29,6 +29,6 @@ export default function Footer() {
         </NavButton>
       </Body>
       <TopButton />
-    </>
+    </div>
   );
 }
