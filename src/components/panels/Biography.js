@@ -5,8 +5,6 @@ import { userIsAdmin } from '../../api/auth';
 import { getBioData, updateBioData } from '../../api/data/bio-data';
 
 const Bio = styled.div`
-  position: relative;
-  flex-grow: 1;
   text-align: left;
 `;
 
@@ -58,7 +56,7 @@ export default function Biography() {
   };
 
   return (
-    <Bio>
+    <Bio className="section" id="biography">
       {showForm ? (
         <BioEditInput value={bioInput} onChange={handleChange} />
       ) : (

@@ -11,10 +11,6 @@ const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  /* padding: 0px 20px; */
-
-  /* overflow: auto; */
 `;
 
 function Initialize() {

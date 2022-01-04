@@ -39,7 +39,7 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <HobbiesContainer className="section">
+    <HobbiesContainer className="section" id="about">
       <PanelTitle>
         Hobbies and Accolades
         {userIsAdmin() && (

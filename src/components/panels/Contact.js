@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import LinkTree from '../components/panels/LinkTree';
-import MessageSender from '../components/panels/MessageSender';
-import Resume from '../components/panels/Resume';
+import LinkTree from './LinkTree';
+import MessageSender from './MessageSender';
+import Resume from './Resume';
 
 const Body = styled.div`
   display: flex;
@@ -28,15 +28,13 @@ const ContactPanel = styled.div`
 
 export default function Contact() {
   return (
-    <div id="contact">
-      <Body>
-        <ContactPanel>
-          <LinkTree />
-          <Resume />
-        </ContactPanel>
+    <Body id="contact">
+      <ContactPanel>
+        <LinkTree />
+        <Resume />
+      </ContactPanel>
 
-        <MessageSender />
-      </Body>
-    </div>
+      <MessageSender />
+    </Body>
   );
 }

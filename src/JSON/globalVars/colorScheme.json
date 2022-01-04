@@ -3,7 +3,7 @@
   "backgroundColorFadedDark": "rgb(13, 13, 23, 0.9)",
   "backgroundColor": "rgb(13, 13, 23, 1)",
   "panelColor": "#191427",
-  "textColor": "#E9E7D0",
+  "textColor": "rgb(233, 231, 208, 1)",
   "highlightColor": "#256AAF",
   "warningColor": "#E2552E"
 }

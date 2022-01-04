@@ -17,11 +17,10 @@ const NavButton = styled.a`
 
 export default function Footer() {
   return (
-    <div className="section">
+    <div className="section" id="footer">
       <Body>
         <div>
-          This website was developed using ReactJS, Sass, ThreeJS, and Google
-          Firebase.
+          This website was developed using ReactJS, Sass, ThreeJS, and Google Firebase.
         </div>
         <NavButton href="/contact" className="navlink">
           <i className="fas fa-file-signature" />
