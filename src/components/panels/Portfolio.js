@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { userIsAdmin } from '../api/auth';
-import { getProjects } from '../api/data/project-data';
-import ProjectForm from '../components/forms/ProjectForm';
-import ProjectCard from '../components/listables/ProjectCard';
+import { userIsAdmin } from '../../api/auth';
+import { getProjects } from '../../api/data/project-data';
+import ProjectForm from '../forms/ProjectForm';
+import ProjectCard from '../listables/ProjectCard';
 
 const Body = styled.div`
   display: flex;

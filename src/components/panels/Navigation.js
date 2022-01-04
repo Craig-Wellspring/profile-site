@@ -86,7 +86,7 @@ export default function Navigation() {
         </NavButton>
       </CenterContainer>
       <RightContainer>
-        <NavButton href="/contact" className="navlink">
+        <NavButton href="/#contact" className="navlink">
           Contact
         </NavButton>
         <NavIcon

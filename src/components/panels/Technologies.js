@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import colorScheme from '../JSON/globalVars/colorScheme.json';
-import techIcons from '../JSON/listableData/techIcons.json';
-import { getTechData } from '../api/data/tech-data';
-import Tech from '../components/listables/Tech';
+import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import techIcons from '../../JSON/listableData/techIcons.json';
+import { getTechData } from '../../api/data/tech-data';
+import Tech from '../listables/Tech';
 
 const Body = styled.div`
   display: flex;
@@ -66,20 +66,18 @@ export default function Technologies() {
   }, []);
 
   return (
-    <div id="technologies">
-      <Body>
-        <TechsPanel className="section">
-          {techs.map((entry) => (
-            <Tech key={entry[0]} tech={entry} setTechs={setTechs} />
-          ))}
-        </TechsPanel>
+    <Body id="technologies">
+      <TechsPanel className="section">
+        {techs.map((entry) => (
+          <Tech key={entry[0]} tech={entry} setTechs={setTechs} />
+        ))}
+      </TechsPanel>
 
-        <IconsPanel>
-          {Object.values(techIcons).map((icon) => (
-            <Icon key={icon.label} className={icon.icon} />
-          ))}
-        </IconsPanel>
-      </Body>
-    </div>
+      <IconsPanel>
+        {Object.values(techIcons).map((icon) => (
+          <Icon key={icon.label} className={icon.icon} />
+        ))}
+      </IconsPanel>
+    </Body>
   );
 }

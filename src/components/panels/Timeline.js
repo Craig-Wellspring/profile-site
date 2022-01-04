@@ -16,7 +16,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-export default function TimelineLong() {
+export default function Timeline() {
   const [showForm, setShowForm] = useState(false);
   const [editEventObj, setEditEventObj] = useState({});
 
@@ -32,7 +32,7 @@ export default function TimelineLong() {
   }, []);
 
   return (
-    <>
+    <div id="timeline" style={{ width: '100%' }}>
       <VerticalTimeline lineColor={colorScheme.textColor}>
         {events.map((event) => (
           <TimelineEvent
@@ -64,6 +64,6 @@ export default function TimelineLong() {
           </button>
         </ButtonContainer>
       )}
-    </>
+    </div>
   );
 }
