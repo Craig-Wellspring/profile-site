@@ -32,7 +32,7 @@ export default function Timeline() {
   }, []);
 
   return (
-    <div id="timeline" style={{ width: '100%' }}>
+    <div id="timeline" style={{ width: '90%' }}>
       <VerticalTimeline lineColor={colorScheme.textColor}>
         {events.map((event) => (
           <TimelineEvent

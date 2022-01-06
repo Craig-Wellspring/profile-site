@@ -70,14 +70,14 @@ export default function Navigation() {
   return (
     <NavBar className="navigation">
       <LeftContainer>
-        <NavButton href="/#about" className="navlink">
-          About
-        </NavButton>
         <NavButton href="/#portfolio" className="navlink">
           Portfolio
         </NavButton>
         <NavButton href="/#technologies" className="navlink">
           Technologies
+        </NavButton>
+        <NavButton href="/#about" className="navlink">
+          About
         </NavButton>
       </LeftContainer>
       <CenterContainer>

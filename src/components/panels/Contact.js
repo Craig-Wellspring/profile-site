@@ -12,8 +12,7 @@ const Body = styled.div`
   align-items: flex-start;
 
   padding: 10px;
-
-  margin-bottom: 100px;
+  width: 90%;
 `;
 
 const ContactPanel = styled.div`

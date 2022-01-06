@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Button = styled.a`
   font-size: 200%;
-  margin: 20px;
+  margin-top: 10px;
 `;
 
 export default function TopButton() {

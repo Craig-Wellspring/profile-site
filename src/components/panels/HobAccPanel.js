@@ -39,7 +39,7 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <HobbiesContainer className="section" id="about">
+    <HobbiesContainer className="section" id="about" style={{ width: '85%' }}>
       <PanelTitle>
         Hobbies and Accolades
         {userIsAdmin() && (
