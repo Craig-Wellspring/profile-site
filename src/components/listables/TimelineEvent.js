@@ -49,9 +49,11 @@ export default function TimelineEvent({
         color: colorScheme.textColor,
         boxShadow: `0px 3px ${colorScheme.textColor}`,
         position: 'relative',
+        opacity: '0.9',
       }}
       contentArrowStyle={{ borderRight: `7px solid ${colorScheme.textColor}` }}
       date={event.date}
+      dateClassName="timeline-date"
       iconStyle={{ background: bubbleColor, color: colorScheme.textColor }}
       icon={<TimelineIcon name={event.iconTag} />}
     >

@@ -32,7 +32,8 @@ export default function Timeline() {
   }, []);
 
   return (
-    <div id="timeline" style={{ width: '90%' }}>
+    <div id="timeline" className="slide-in on-left" style={{ width: '90%' }}>
+      <h2>Timeline</h2>
       <VerticalTimeline lineColor={colorScheme.textColor}>
         {events.map((event) => (
           <TimelineEvent

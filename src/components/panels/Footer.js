@@ -7,8 +7,6 @@ const Body = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
-
-  max-width: 90%;
 `;
 
 const NavButton = styled.a`
@@ -19,15 +17,17 @@ const NavButton = styled.a`
 
 export default function Footer() {
   return (
-    <Body className="section slide-in" id="footer">
-      <div>
-        This website was developed using ReactJS, Sass, ThreeJS, and Google Firebase.
-      </div>
-      <NavButton href="/#contact" className="navlink">
-        <i className="fas fa-file-signature" />
-        Craig Wellspring
-      </NavButton>
-      <TopButton />
-    </Body>
+    <div className="fade-in" id="footer">
+      <Body className="section">
+        <div>
+          This website was developed using ReactJS, ThreeJS, Sass, and Google Firebase.
+        </div>
+        <NavButton href="/#contact" className="navlink">
+          <i className="fas fa-file-signature" />
+          Craig Wellspring
+        </NavButton>
+        <TopButton />
+      </Body>
+    </div>
   );
 }

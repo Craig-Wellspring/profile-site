@@ -1,10 +1,31 @@
+// SLIDERS
 .slide-in {
-  opacity: 0;
-  transform: translateX(-70%);
-  transition: opacity 350ms ease-in, transform 350ms ease-in;
+  transition: opacity 150ms ease-in, transform 250ms ease-in-out;
 }
 
-.slide-in.appear {
+.slide-in.on-left, .slide-in.on-right {
+  opacity: 0;
+}
+
+.slide-in.showingFL, .slide-in.showingFR {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) skewX(0);
+}
+
+.slide-in.on-left {
+  transform: translateX(-100%) skewX(-35deg);
+}
+
+.slide-in.on-right {
+  transform: translateX(100%) skewX(35deg);
+}
+
+// FADERS
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.showing {
+  opacity: 1;
 }

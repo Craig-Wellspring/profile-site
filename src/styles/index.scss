@@ -4,15 +4,16 @@
 @import 'animation';
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
 
-
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #000;
   color: $textColor !important;
   font-family: 'Chakra Petch' !important;
+  overflow-x: hidden;
 }
 
 .panel {
@@ -43,6 +44,7 @@ body {
 .section {
   background-color: $panelColor;
   color: $textColor;
+  opacity: 0.9;
 
   padding: 20px;
   border: 1px solid $textColor;
@@ -147,14 +149,6 @@ svg {
   fill: $textColor;
 }
 
-.bgColor {
-  background-color: $backgroundColorFaded;
-}
-
-.vertical-timeline {
-  padding: 15px 0px 0px 0px !important;
-}
-
 .blur-filter {
   filter: blur(4px);
   clip-path: none !important;
@@ -188,4 +182,12 @@ svg {
     color: $warningColor;
     text-shadow: 2px 2px $backgroundColorFaded;
   }
+}
+
+.timeline-date {
+  color: $textColor !important;
+  text-shadow: 2px 2px 2px 2px black;
+  opacity: 1 !important;
+  font-size: 135% !important;
+  text-align: center !important;
 }

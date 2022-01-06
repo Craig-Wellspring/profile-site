@@ -56,13 +56,15 @@ export default function Biography() {
   };
 
   return (
-    <Bio className="section slide-in" id="biography">
-      {showForm ? (
-        <BioEditInput value={bioInput} onChange={handleChange} />
-      ) : (
-        <BioInfo>{bio}</BioInfo>
-      )}
-      {userIsAdmin() && (
+    <div className="slide-in on-left" id="biography">
+      <h2>Bio</h2>
+      <Bio className="section">
+        {showForm ? (
+          <BioEditInput value={bioInput} onChange={handleChange} />
+        ) : (
+          <BioInfo>{bio}</BioInfo>
+        )}
+        {userIsAdmin() && (
         <EditBioButton
           type="button"
           className={showForm ? 'orange-button' : 'blue-button'}
@@ -70,7 +72,8 @@ export default function Biography() {
         >
           <i className={`fas fa-${showForm ? 'check' : 'edit'}`} />
         </EditBioButton>
-      )}
-    </Bio>
+        )}
+      </Bio>
+    </div>
   );
 }

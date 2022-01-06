@@ -22,8 +22,8 @@ class SelectiveBloom {
 
     const bloomPass2 = new UnrealBloomPass(
       new Vector2(window.innerWidth, window.innerHeight),
-      1,
-      0.05,
+      1.5,
+      0.2,
       0,
     );
 

@@ -45,10 +45,11 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <HobbiesContainer className="section slide-in" id="about" style={{ maxWidth: '85%' }}>
-      <PanelTitle>
-        Hobbies and Accolades
-        {userIsAdmin() && (
+    <div className="slide-in on-left" id="about">
+      <h2>Hobbies and Accolades</h2>
+      <HobbiesContainer className="section">
+        <PanelTitle>
+          {userIsAdmin() && (
           <button
             type="button"
             className={showCreateForm ? 'orange-button' : 'blue-button'}
@@ -56,25 +57,26 @@ export default function HobAccPanel() {
           >
             <i className={`fas fa-${showCreateForm ? 'times' : 'plus'}`} />
           </button>
-        )}
-      </PanelTitle>
-      <CardContainer>
-        {showCreateForm && (
+          )}
+        </PanelTitle>
+        <CardContainer>
+          {showCreateForm && (
           <HobAccForm
             setHobAccs={setHobAccs}
             setShowCreateForm={setShowCreateForm}
           />
-        )}
+          )}
 
-        {hobAccs.map((hobby) => (
-          <HobAccCard
-            key={hobby.firebaseKey}
-            obj={hobby}
-            setHobAccs={setHobAccs}
-            setShowCreateForm={setShowCreateForm}
-          />
-        ))}
-      </CardContainer>
-    </HobbiesContainer>
+          {hobAccs.map((hobby) => (
+            <HobAccCard
+              key={hobby.firebaseKey}
+              obj={hobby}
+              setHobAccs={setHobAccs}
+              setShowCreateForm={setShowCreateForm}
+            />
+          ))}
+        </CardContainer>
+      </HobbiesContainer>
+    </div>
   );
 }
