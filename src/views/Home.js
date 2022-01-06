@@ -16,7 +16,7 @@ const HomeScroll = styled.div`
   row-gap: 40px;
   align-items: center;
   width: 100%;
-  height: 7780px;
+  height: 7705px;
   grid-template-columns: 1 1 1 1 1 1 1 1;
 
   margin: 0px 0px 50px 0px;

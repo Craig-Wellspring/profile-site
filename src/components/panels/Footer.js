@@ -7,6 +7,8 @@ const Body = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
+
+  max-width: 90%;
 `;
 
 const NavButton = styled.a`
@@ -17,17 +19,15 @@ const NavButton = styled.a`
 
 export default function Footer() {
   return (
-    <div className="section" id="footer">
-      <Body>
-        <div>
-          This website was developed using ReactJS, Sass, ThreeJS, and Google Firebase.
-        </div>
-        <NavButton href="/contact" className="navlink">
-          <i className="fas fa-file-signature" />
-          Craig Wellspring
-        </NavButton>
-      </Body>
+    <Body className="section" id="footer">
+      <div>
+        This website was developed using ReactJS, Sass, ThreeJS, and Google Firebase.
+      </div>
+      <NavButton href="/#contact" className="navlink">
+        <i className="fas fa-file-signature" />
+        Craig Wellspring
+      </NavButton>
       <TopButton />
-    </div>
+    </Body>
   );
 }

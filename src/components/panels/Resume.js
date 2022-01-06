@@ -10,8 +10,8 @@ const ResumePanel = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 350px;
-  height: 320px;
+  width: 325px;
+  height: 305px;
 `;
 
 const Title = styled.div`
@@ -33,9 +33,9 @@ const DownloadLink = styled.a`
 
 const PreviewImage = styled.img`
   position: absolute;
-  top: 20px;
+  top: 10px;
   z-index: -1;
-  width: 310px;
+  width: 300px;
   height: 280px;
 `;
 
