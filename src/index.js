@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import SelectiveBloom from './animation/SelectiveBloom';
+import SelectiveBloom from './three/SelectiveBloom';
 import bgImage from './resources/images/background.png';
 import portraitImage from './resources/images/portrait.jpeg';
 import moonImage from './resources/images/moon.jpg';
@@ -133,12 +133,12 @@ const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 8, 6, 1), wireM
 wireObjects.push(spawnObj(cylinder, { x: 105, y: 80, z: 50 }));
 
 // WIRE KNOT
-const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(5.5, 1.1, 30, 5), wireMaterial);
-wireObjects.push(spawnObj(knot, { x: 60, y: 20, z: 157 }));
+const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(6.5, 1.1, 30, 5), wireMaterial);
+wireObjects.push(spawnObj(knot, { x: 60, y: 22, z: 157 }));
 
 // WIRE CONE
 const cone = new THREE.Mesh(new THREE.ConeGeometry(5, 8, 8, 1), wireMaterial);
-wireObjects.push(spawnObj(cone, { x: 105, y: 70, z: 145 }));
+wireObjects.push(spawnObj(cone, { x: 105, y: 73, z: 145 }));
 
 // WIRE COIL
 const coil = new THREE.Mesh(new THREE.TorusKnotGeometry(2.5, 0.6, 25, 5, 2, 1), wireMaterial);
@@ -201,6 +201,23 @@ animate();
 // DOM
 ReactDOM.render(
   <React.StrictMode>
+    {/* <div style={{
+      position: 'absolute',
+      top: '0px',
+      height: '100vh',
+      width: '100vw',
+    }}
+    >
+      <div style={{
+        position: 'fixed',
+        left: '5%',
+        top: '25%',
+        bottom: '25%',
+        border: '5px dashed white',
+        width: '90vw',
+      }}
+      />
+    </div> */}
     <BrowserRouter>
       <Initialize />
     </BrowserRouter>
@@ -208,24 +225,48 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-// /DOM ANIMATION
+// DOM ANIMATION
 const sliders = document.querySelectorAll('.slide-in');
+const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
   threshold: 0,
-  rootMargin: '0px 0px -30% 0px',
+  rootMargin: '-35% 0px -25% 0px',
 };
 
-// eslint-disable-next-line no-shadow
-const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+const appearOnScroll = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('appear');
-      appearOnScroll.unobserve(entry.target);
+      if (entry.target.classList.contains('on-left')) {
+        entry.target.classList.remove('on-left');
+        entry.target.classList.add('showingFL');
+      }
+      if (entry.target.classList.contains('on-right')) {
+        entry.target.classList.remove('on-right');
+        entry.target.classList.add('showingFR');
+      }
+      if (entry.target.classList.contains('fade-in')) {
+        entry.target.classList.add('showing');
+      }
+    } else {
+      if (entry.target.classList.contains('showingFL')) {
+        entry.target.classList.remove('showingFL');
+        entry.target.classList.add('on-right');
+      }
+      if (entry.target.classList.contains('showingFR')) {
+        entry.target.classList.remove('showingFR');
+        entry.target.classList.add('on-left');
+      }
+      if (entry.target.classList.contains('fade-in')) {
+        entry.target.classList.remove('showing');
+      }
     }
   });
 }, appearOptions);
 
 sliders.forEach((slider) => {
   appearOnScroll.observe(slider);
+});
+faders.forEach((fader) => {
+  appearOnScroll.observe(fader);
 });

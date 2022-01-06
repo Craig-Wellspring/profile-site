@@ -12,7 +12,6 @@ const Body = styled.div`
   align-items: flex-start;
 
   padding: 10px;
-  width: 90%;
 `;
 
 const ContactPanel = styled.div`
@@ -27,13 +26,16 @@ const ContactPanel = styled.div`
 
 export default function Contact() {
   return (
-    <Body id="contact" className="slide-in">
-      <ContactPanel>
-        <LinkTree />
-        <Resume />
-      </ContactPanel>
+    <div id="contact" className="slide-in on-left">
+      <h2>Contact</h2>
+      <Body>
+        <ContactPanel>
+          <LinkTree />
+          <Resume />
+        </ContactPanel>
 
-      <MessageSender />
-    </Body>
+        <MessageSender />
+      </Body>
+    </div>
   );
 }
