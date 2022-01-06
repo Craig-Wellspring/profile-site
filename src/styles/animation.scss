@@ -1,0 +1,10 @@
+.slide-in {
+  opacity: 0;
+  transform: translateX(-70%);
+  transition: opacity 350ms ease-in, transform 350ms ease-in;
+}
+
+.slide-in.appear {
+  opacity: 1;
+  transform: translateX(0);
+}

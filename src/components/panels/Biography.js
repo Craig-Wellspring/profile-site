@@ -56,7 +56,7 @@ export default function Biography() {
   };
 
   return (
-    <Bio className="section" id="biography">
+    <Bio className="section slide-in" id="biography">
       {showForm ? (
         <BioEditInput value={bioInput} onChange={handleChange} />
       ) : (

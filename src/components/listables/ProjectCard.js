@@ -77,44 +77,42 @@ export default function ProjectCard({ projectObj }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
   return (
-    <>
-      <Card>
-        <CoverImage
-          src={projectObj.images ? projectObj.images[0] : noImgFound}
-          alt="Project Preview"
-          onClick={() => setShowOverlay(true)}
-          className={showOverlay ? 'blur-filter' : ''}
-        />
-        {showOverlay && (
-          <Overlay onClick={() => setShowOverlay(false)}>
-            <Title>{projectObj.name}</Title>
-            <Description>{projectObj.desc}</Description>
-            <div>
-              <NavIcon
-                href={`/projects/${projectObj.firebaseKey}`}
-                className="navlink"
-              >
-                <i className="fas fa-eye" />
-              </NavIcon>
-              <NavIcon
-                href={projectObj.githubLink}
-                className="navlink"
-                target="_blank"
-              >
-                <i className="fas fa-code-branch" />
-              </NavIcon>
-              <NavIcon
-                href={projectObj.deployedLink}
-                className="navlink"
-                target="_blank"
-              >
-                <i className="fas fa-laptop" />
-              </NavIcon>
-            </div>
-          </Overlay>
-        )}
-      </Card>
-    </>
+    <Card>
+      <CoverImage
+        src={projectObj.images ? projectObj.images[0] : noImgFound}
+        alt="Project Preview"
+        onClick={() => setShowOverlay(true)}
+        className={showOverlay ? 'blur-filter' : ''}
+      />
+      {showOverlay && (
+      <Overlay onClick={() => setShowOverlay(false)}>
+        <Title>{projectObj.name}</Title>
+        <Description>{projectObj.desc}</Description>
+        <div>
+          <NavIcon
+            href={`/projects/${projectObj.firebaseKey}`}
+            className="navlink"
+          >
+            <i className="fas fa-eye" />
+          </NavIcon>
+          <NavIcon
+            href={projectObj.githubLink}
+            className="navlink"
+            target="_blank"
+          >
+            <i className="fas fa-code-branch" />
+          </NavIcon>
+          <NavIcon
+            href={projectObj.deployedLink}
+            className="navlink"
+            target="_blank"
+          >
+            <i className="fas fa-laptop" />
+          </NavIcon>
+        </div>
+      </Overlay>
+      )}
+    </Card>
   );
 }
 

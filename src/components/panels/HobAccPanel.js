@@ -5,7 +5,12 @@ import { getHobAccs } from '../../api/data/hobacc-data';
 import HobAccForm from '../forms/HobAccForm';
 import HobAccCard from '../listables/HobAccCard';
 
-const HobbiesContainer = styled.div``;
+const HobbiesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const PanelTitle = styled.div`
   display: flex;
@@ -22,6 +27,7 @@ const CardContainer = styled.div`
 
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 500px;
 `;
 
 export default function HobAccPanel() {
@@ -39,7 +45,7 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <HobbiesContainer className="section" id="about" style={{ width: '85%' }}>
+    <HobbiesContainer className="section slide-in" id="about" style={{ maxWidth: '85%' }}>
       <PanelTitle>
         Hobbies and Accolades
         {userIsAdmin() && (

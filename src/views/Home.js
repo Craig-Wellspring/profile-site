@@ -9,7 +9,6 @@ import Portfolio from '../components/panels/Portfolio';
 import Technologies from '../components/panels/Technologies';
 
 const HomeScroll = styled.div`
-  /* display: grid; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,7 +16,6 @@ const HomeScroll = styled.div`
   align-items: center;
   width: 100%;
   height: 7705px;
-  grid-template-columns: 1 1 1 1 1 1 1 1;
 
   margin: 0px 0px 50px 0px;
 `;
