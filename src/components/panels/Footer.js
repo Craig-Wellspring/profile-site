@@ -19,7 +19,7 @@ const NavButton = styled.a`
 
 export default function Footer() {
   return (
-    <Body className="section" id="footer">
+    <Body className="section slide-in" id="footer">
       <div>
         This website was developed using ReactJS, Sass, ThreeJS, and Google Firebase.
       </div>

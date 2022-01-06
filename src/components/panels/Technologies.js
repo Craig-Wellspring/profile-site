@@ -66,7 +66,7 @@ export default function Technologies() {
   }, []);
 
   return (
-    <Body id="technologies">
+    <Body id="technologies" className="slide-in">
       <TechsPanel className="section">
         {techs.map((entry) => (
           <Tech key={entry[0]} tech={entry} setTechs={setTechs} />

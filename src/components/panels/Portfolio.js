@@ -37,7 +37,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <Body id="portfolio">
+    <Body id="portfolio" className="slide-in">
       <ProjectPanel>
         {projects.map((project) => (
           <ProjectCard key={project.firebaseKey} projectObj={project} />

@@ -27,7 +27,7 @@ const ContactPanel = styled.div`
 
 export default function Contact() {
   return (
-    <Body id="contact">
+    <Body id="contact" className="slide-in">
       <ContactPanel>
         <LinkTree />
         <Resume />

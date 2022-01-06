@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import SelectiveBloom from './three/SelectiveBloom';
+import SelectiveBloom from './animation/SelectiveBloom';
 import bgImage from './resources/images/background.png';
 import portraitImage from './resources/images/portrait.jpeg';
 import moonImage from './resources/images/moon.jpg';
@@ -69,7 +69,7 @@ const addStar = () => {
   star.position.set(x, y, z);
   scene.add(star);
 };
-Array(1800).fill().forEach(addStar);
+Array(400).fill().forEach(addStar);
 
 // MOON
 const moonTexture = new THREE.TextureLoader().load(moonImage);
@@ -140,9 +140,9 @@ wireObjects.push(spawnObj(knot, { x: 60, y: 20, z: 157 }));
 const cone = new THREE.Mesh(new THREE.ConeGeometry(5, 8, 8, 1), wireMaterial);
 wireObjects.push(spawnObj(cone, { x: 105, y: 70, z: 145 }));
 
-// WIRE LOOP
-const loop = new THREE.Mesh(new THREE.TorusKnotGeometry(2.5, 0.6, 25, 5, 2, 1), wireMaterial);
-wireObjects.push(spawnObj(loop, { x: 146, y: 63, z: 123 }));
+// WIRE COIL
+const coil = new THREE.Mesh(new THREE.TorusKnotGeometry(2.5, 0.6, 25, 5, 2, 1), wireMaterial);
+wireObjects.push(spawnObj(coil, { x: 146, y: 63, z: 123 }));
 
 // CAMERA
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
@@ -171,14 +171,14 @@ const animate = () => {
   ring.rotation.z += 0.005;
   wireObjects.forEach((obj) => rotateObj(obj));
 
-  // Bright Bloom - Target: Sun
+  // Bright Bloom - Target: Sun, Stars
   blackoutBG();
   blackoutMat(moon.material);
   blackoutMat(wireMaterial);
   blackoutMat(avatar.material);
   sb.bloom1.render();
 
-  // Soft Bloom - Target: Wire, Stars
+  // Soft Bloom - Target: Wire Objects
   blackoutMat(sun.material);
   blackoutMat(starMaterial);
   recolorMat(wireMaterial, colorScheme.textColor);
@@ -186,9 +186,9 @@ const animate = () => {
 
   // No Bloom - Target: All
   spaceBG();
+  recolorMat(starMaterial, 'white');
   recolorMat(sun.material, 'yellow');
   recolorMat(moon.material, 'gray');
-  recolorMat(starMaterial, 'white');
   recolorMat(avatar.material, 'white');
   sb.final.render();
 
@@ -207,3 +207,25 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+// /DOM ANIMATION
+const sliders = document.querySelectorAll('.slide-in');
+
+const appearOptions = {
+  threshold: 0,
+  rootMargin: '0px 0px -30% 0px',
+};
+
+// eslint-disable-next-line no-shadow
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('appear');
+      appearOnScroll.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+
+sliders.forEach((slider) => {
+  appearOnScroll.observe(slider);
+});
