@@ -22,7 +22,7 @@ const ProjectPanel = styled.div`
   max-width: 800px;
 `;
 
-export default function Portfolio() {
+export default function Projects() {
   const [showForm, setShowForm] = useState(false);
 
   const [projects, setProjects] = useState([]);
@@ -37,17 +37,18 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <Body id="portfolio" className="slide-in on-left">
-      <h2>Projects</h2>
-      <ProjectPanel>
-        {projects.map((project) => (
-          <ProjectCard key={project.firebaseKey} projectObj={project} />
-        ))}
-      </ProjectPanel>
-      {showForm && (
+    <div id="projects" style={{ scrollMarginTop: '50px' }}>
+      <Body className="slide-in on-left">
+        <h2>Projects</h2>
+        <ProjectPanel>
+          {projects.map((project) => (
+            <ProjectCard key={project.firebaseKey} projectObj={project} />
+          ))}
+        </ProjectPanel>
+        {showForm && (
         <ProjectForm setShowForm={setShowForm} setProjects={setProjects} />
-      )}
-      {userIsAdmin() && !showForm && (
+        )}
+        {userIsAdmin() && !showForm && (
         <button
           type="button"
           className="blue-button"
@@ -55,7 +56,8 @@ export default function Portfolio() {
         >
           <i className="fas fa-plus" />
         </button>
-      )}
-    </Body>
+        )}
+      </Body>
+    </div>
   );
 }

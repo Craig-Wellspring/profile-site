@@ -11,7 +11,7 @@ const HobbiesContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  max-width: 600px;
+  max-width: 800px;
 `;
 
 const PanelTitle = styled.div`
@@ -46,38 +46,40 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <div className="slide-in on-left" id="about">
-      <h2>Hobbies and Accolades</h2>
-      <HobbiesContainer>
-        <PanelTitle>
-          {userIsAdmin() && (
-          <button
-            type="button"
-            className={showCreateForm ? 'orange-button' : 'blue-button'}
-            onClick={() => setShowCreateForm(!showCreateForm)}
-          >
-            <i className={`fas fa-${showCreateForm ? 'times' : 'plus'}`} />
-          </button>
-          )}
-        </PanelTitle>
-        <CardContainer>
-          {showCreateForm && (
-          <HobAccForm
-            setHobAccs={setHobAccs}
-            setShowCreateForm={setShowCreateForm}
-          />
-          )}
+    <div id="about" style={{ scrollMarginTop: '50px' }}>
+      <div className="slide-in on-left">
+        <h2>Hobbies and Accolades</h2>
+        <HobbiesContainer>
+          <PanelTitle>
+            {userIsAdmin() && (
+              <button
+                type="button"
+                className={showCreateForm ? 'orange-button' : 'blue-button'}
+                onClick={() => setShowCreateForm(!showCreateForm)}
+              >
+                <i className={`fas fa-${showCreateForm ? 'times' : 'plus'}`} />
+              </button>
+            )}
+          </PanelTitle>
+          <CardContainer>
+            {showCreateForm && (
+              <HobAccForm
+                setHobAccs={setHobAccs}
+                setShowCreateForm={setShowCreateForm}
+              />
+            )}
 
-          {hobAccs.map((hobby) => (
-            <HobAccCard
-              key={hobby.firebaseKey}
-              obj={hobby}
-              setHobAccs={setHobAccs}
-              setShowCreateForm={setShowCreateForm}
-            />
-          ))}
-        </CardContainer>
-      </HobbiesContainer>
+            {hobAccs.map((hobby) => (
+              <HobAccCard
+                key={hobby.firebaseKey}
+                obj={hobby}
+                setHobAccs={setHobAccs}
+                setShowCreateForm={setShowCreateForm}
+              />
+            ))}
+          </CardContainer>
+        </HobbiesContainer>
+      </div>
     </div>
   );
 }

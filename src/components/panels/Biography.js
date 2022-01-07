@@ -57,24 +57,26 @@ export default function Biography() {
   };
 
   return (
-    <div className="slide-in on-left" id="biography">
-      <h2>Bio</h2>
-      <Bio className="section">
-        {showForm ? (
-          <BioEditInput value={bioInput} onChange={handleChange} />
-        ) : (
-          <BioInfo>{bio}</BioInfo>
-        )}
-        {userIsAdmin() && (
-        <EditBioButton
-          type="button"
-          className={showForm ? 'orange-button' : 'blue-button'}
-          onClick={BioEdit}
-        >
-          <i className={`fas fa-${showForm ? 'check' : 'edit'}`} />
-        </EditBioButton>
-        )}
-      </Bio>
+    <div id="biography">
+      <div className="slide-in on-left">
+        <h2>Bio</h2>
+        <Bio className="section">
+          {showForm ? (
+            <BioEditInput value={bioInput} onChange={handleChange} />
+          ) : (
+            <BioInfo>{bio}</BioInfo>
+          )}
+          {userIsAdmin() && (
+            <EditBioButton
+              type="button"
+              className={showForm ? 'orange-button' : 'blue-button'}
+              onClick={BioEdit}
+            >
+              <i className={`fas fa-${showForm ? 'check' : 'edit'}`} />
+            </EditBioButton>
+          )}
+        </Bio>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { deleteHobAcc } from '../../api/data/hobacc-data';
 import HobAccForm from '../forms/HobAccForm';
 
 const Card = styled.div`
-  width: 200px;
+  width: 300px;
 
   display: flex;
   flex-direction: column;

@@ -27,7 +27,9 @@ firebase.initializeApp(firebaseConfig);
 
 // SCENE
 const scene = new THREE.Scene();
-const renderer = new THREE.WebGL1Renderer({ canvas: document.querySelector('#bg') });
+const renderer = new THREE.WebGL1Renderer({
+  canvas: document.querySelector('#bg'),
+});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -37,14 +39,25 @@ scene.add(ambientLight);
 
 // BACKGROUND
 const backgroundImg = new THREE.TextureLoader().load(bgImage);
-const blackoutBG = () => { scene.background = null; };
-const spaceBG = () => { scene.background = backgroundImg; };
+const blackoutBG = () => {
+  scene.background = null;
+};
+const spaceBG = () => {
+  scene.background = backgroundImg;
+};
 
 // MATERIALS
-const wireMaterial = new THREE.MeshBasicMaterial({ color: colorScheme.textColor, wireframe: true });
+const wireMaterial = new THREE.MeshBasicMaterial({
+  color: colorScheme.textColor,
+  wireframe: true,
+});
 const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-const blackoutMat = (mat) => { mat.color.set(0x000000); };
-const recolorMat = (mat, color) => { mat.color.set(color); };
+const blackoutMat = (mat) => {
+  mat.color.set(0x000000);
+};
+const recolorMat = (mat, color) => {
+  mat.color.set(color);
+};
 
 // OBJECTS
 const spawnObj = (mesh, pos) => {
@@ -64,8 +77,13 @@ const rotateObj = (obj, rate = rotationRate) => {
 
 // STARS
 const addStar = () => {
-  const star = new THREE.Mesh(new THREE.SphereGeometry(0.05, 24, 24), starMaterial);
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(350));
+  const star = new THREE.Mesh(
+    new THREE.SphereGeometry(0.05, 24, 24),
+    starMaterial,
+  );
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(350));
   star.position.set(x, y, z);
   scene.add(star);
 };
@@ -76,7 +94,11 @@ const moonTexture = new THREE.TextureLoader().load(moonImage);
 const moonNormalTexture = new THREE.TextureLoader().load(moonNormal);
 const moonMesh = new THREE.Mesh(
   new THREE.SphereGeometry(1.5, 32, 32),
-  new THREE.MeshStandardMaterial({ map: moonTexture, normalMap: moonNormalTexture, color: 'gray' }),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: moonNormalTexture,
+    color: 'gray',
+  }),
 );
 const moon = spawnObj(moonMesh, { x: 140, y: 67.25, z: 110 });
 
@@ -85,7 +107,11 @@ const sunTexture = new THREE.TextureLoader().load(sunImage);
 const sunNormalTexture = new THREE.TextureLoader().load(sunNormal);
 const sunMesh = new THREE.Mesh(
   new THREE.SphereGeometry(10, 32, 32),
-  new THREE.MeshStandardMaterial({ map: sunTexture, normalMap: sunNormalTexture, color: 'yellow' }),
+  new THREE.MeshStandardMaterial({
+    map: sunTexture,
+    normalMap: sunNormalTexture,
+    color: 'yellow',
+  }),
 );
 const sun = spawnObj(sunMesh, { x: 120, y: 40, z: -100 });
 
@@ -95,17 +121,29 @@ const portraitBox = new THREE.Mesh(
   new THREE.BoxGeometry(7, 7, 7),
   new THREE.MeshBasicMaterial({ map: portraitTexture, color: 'white' }),
 );
-const avatar = spawnObj(portraitBox, { x: 0, y: 0, z: -14 });
+const emptyBox = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), wireMaterial);
+const avatar = window.location.pathname.includes('projects')
+  ? spawnObj(emptyBox, { x: 0, y: 0, z: -14 })
+  : spawnObj(portraitBox, { x: 0, y: 0, z: -14 });
 
 // WIRE PLANET
-const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(3.5, 6, 6), wireMaterial);
+const sphereMesh = new THREE.Mesh(
+  new THREE.SphereGeometry(3.5, 6, 6),
+  wireMaterial,
+);
 const sphere = spawnObj(sphereMesh, { x: -26, y: 7, z: -25 });
-const ringMesh = new THREE.Mesh(new THREE.RingGeometry(5.5, 9, 10, 3), wireMaterial);
+const ringMesh = new THREE.Mesh(
+  new THREE.RingGeometry(5.5, 9, 10, 3),
+  wireMaterial,
+);
 const ring = spawnObj(ringMesh, { x: -26, y: 7, z: -25 });
 ring.rotation.x = -10;
 
 // WIRE TORUS
-const torus = new THREE.Mesh(new THREE.TorusGeometry(7, 2, 4, 10), wireMaterial);
+const torus = new THREE.Mesh(
+  new THREE.TorusGeometry(7, 2, 4, 10),
+  wireMaterial,
+);
 wireObjects.push(spawnObj(torus, { x: 40, y: -13, z: -45 }));
 
 // WIRE D4
@@ -129,11 +167,17 @@ const d20 = new THREE.Mesh(new THREE.IcosahedronGeometry(5, 0), wireMaterial);
 wireObjects.push(spawnObj(d20, { x: 35, y: 65, z: 100 }));
 
 // WIRE CYLINDER
-const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 8, 6, 1), wireMaterial);
+const cylinder = new THREE.Mesh(
+  new THREE.CylinderGeometry(5, 5, 8, 6, 1),
+  wireMaterial,
+);
 wireObjects.push(spawnObj(cylinder, { x: 105, y: 80, z: 50 }));
 
 // WIRE KNOT
-const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(6.5, 1.1, 30, 5), wireMaterial);
+const knot = new THREE.Mesh(
+  new THREE.TorusKnotGeometry(6.5, 1.1, 30, 5),
+  wireMaterial,
+);
 wireObjects.push(spawnObj(knot, { x: 60, y: 22, z: 157 }));
 
 // WIRE CONE
@@ -141,15 +185,23 @@ const cone = new THREE.Mesh(new THREE.ConeGeometry(5, 8, 8, 1), wireMaterial);
 wireObjects.push(spawnObj(cone, { x: 105, y: 73, z: 145 }));
 
 // WIRE COIL
-const coil = new THREE.Mesh(new THREE.TorusKnotGeometry(2.5, 0.6, 25, 5, 2, 1), wireMaterial);
+const coil = new THREE.Mesh(
+  new THREE.TorusKnotGeometry(2.5, 0.6, 25, 5, 2, 1),
+  wireMaterial,
+);
 wireObjects.push(spawnObj(coil, { x: 146, y: 63, z: 123 }));
 
 // CAMERA
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  1,
+  1000,
+);
 const moveCamera = () => {
   const t = document.body.getBoundingClientRect().top;
 
-  camera.position.z = (t * -0.02) + 1;
+  camera.position.z = t * -0.02 + 1;
   camera.position.x = t * -0.02;
   camera.position.y = t * -0.01;
 

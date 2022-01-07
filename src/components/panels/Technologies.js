@@ -66,21 +66,23 @@ export default function Technologies() {
   }, []);
 
   return (
-    <div id="technologies" className="slide-in on-left">
-      <h2>Technologies</h2>
-      <Body>
-        <TechsPanel className="section">
-          {techs.map((entry) => (
-            <Tech key={entry[0]} tech={entry} setTechs={setTechs} />
-          ))}
-        </TechsPanel>
+    <div id="technologies" style={{ scrollMarginTop: '50px' }}>
+      <div className="slide-in on-left">
+        <h2>Technologies</h2>
+        <Body>
+          <TechsPanel className="section">
+            {techs.map((entry) => (
+              <Tech key={entry[0]} tech={entry} setTechs={setTechs} />
+            ))}
+          </TechsPanel>
 
-        <IconsPanel>
-          {Object.values(techIcons).map((icon) => (
-            <Icon key={icon.label} className={icon.icon} />
-          ))}
-        </IconsPanel>
-      </Body>
+          <IconsPanel>
+            {Object.values(techIcons).map((icon) => (
+              <Icon key={icon.label} className={icon.icon} />
+            ))}
+          </IconsPanel>
+        </Body>
+      </div>
     </div>
   );
 }
