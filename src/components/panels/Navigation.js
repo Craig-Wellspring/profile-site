@@ -1,20 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import AccountPanel from './AccountPanel';
 
 const NavBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 95%;
+  padding: 10px;
+  margin: 10px 10px;
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
   }
-
-  padding: 10px;
-  margin: 20px 10px;
 `;
 
 const LeftContainer = styled.div`
@@ -40,6 +39,7 @@ const CenterContainer = styled.div`
 `;
 
 const RightContainer = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   column-gap: 10px;
@@ -59,7 +59,7 @@ const NavIcon = styled.a`
   padding: 5px;
 `;
 
-const AccountPageButton = styled(Link)`
+const AccountPageButton = styled.button`
   border: 0;
   background-color: transparent;
   color: ${colorScheme.textColor};
@@ -67,11 +67,17 @@ const AccountPageButton = styled(Link)`
 `;
 
 export default function Navigation() {
+  const [showButton, setShowButton] = useState(false);
+
+  const accountButton = () => {
+    setShowButton(!showButton);
+  };
+
   return (
     <NavBar className="navigation">
       <LeftContainer>
-        <NavButton href="/#portfolio" className="navlink">
-          Portfolio
+        <NavButton href="/#projects" className="navlink">
+          Projects
         </NavButton>
         <NavButton href="/#technologies" className="navlink">
           Technologies
@@ -103,9 +109,14 @@ export default function Navigation() {
         >
           <i className="fab fa-linkedin" />
         </NavIcon>
-        <AccountPageButton className="navlink" to="/account">
+        <AccountPageButton
+          className="navlink"
+          type="button"
+          onClick={accountButton}
+        >
           <i className="fas fa-sign-in-alt" />
         </AccountPageButton>
+        {showButton && (<AccountPanel />)}
       </RightContainer>
     </NavBar>
   );

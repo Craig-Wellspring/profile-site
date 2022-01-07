@@ -36,7 +36,7 @@ export default function Timeline() {
       id="timeline"
       className="slide-in on-left"
       style={{
-        width: '90%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+        width: '90%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', scrollMarginTop: '50px',
       }}
     >
       <h2>Timeline</h2>

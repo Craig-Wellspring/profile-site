@@ -26,16 +26,17 @@ const ContactPanel = styled.div`
 
 export default function Contact() {
   return (
-    <div id="contact" className="slide-in on-left">
-      <h2>Contact</h2>
-      <Body>
-        <ContactPanel>
-          <LinkTree />
-          <Resume />
-        </ContactPanel>
-
-        <MessageSender />
-      </Body>
+    <div id="contact" style={{ scrollMarginTop: '50px' }}>
+      <div className="slide-in on-left">
+        <h2>Contact</h2>
+        <Body>
+          <ContactPanel>
+            <LinkTree />
+            <Resume />
+          </ContactPanel>
+          <MessageSender />
+        </Body>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Footer from '../components/panels/Footer';
 import HobAccPanel from '../components/panels/HobAccPanel';
 import Timeline from '../components/panels/Timeline';
 import Contact from '../components/panels/Contact';
-import Portfolio from '../components/panels/Portfolio';
+import Projects from '../components/panels/Projects';
 import Technologies from '../components/panels/Technologies';
 
 const HomeScroll = styled.div`
@@ -15,17 +15,22 @@ const HomeScroll = styled.div`
   row-gap: 40px;
   align-items: center;
   width: 100%;
-  height: 7705px;
-
+  position: relative;
   margin: 0px 0px 50px 0px;
+
+@media only screen and (min-width: 800px) {
+  height: 7720px;
+}
+
 `;
 
 export default function Home() {
   return (
     <HomeScroll>
-      <div id="home" style={{ height: '100px' }} />
+      <div id="home" style={{ position: 'absolute', scrollMarginTop: '200px' }} />
+      <div style={{ height: '400px', width: '100%' }} />
       <Biography />
-      <Portfolio />
+      <Projects />
       <Technologies />
       <HobAccPanel />
       <Timeline />
