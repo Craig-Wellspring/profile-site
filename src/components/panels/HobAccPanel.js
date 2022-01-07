@@ -10,6 +10,8 @@ const HobbiesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  max-width: 600px;
 `;
 
 const PanelTitle = styled.div`
@@ -27,7 +29,6 @@ const CardContainer = styled.div`
 
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 500px;
 `;
 
 export default function HobAccPanel() {
@@ -47,7 +48,7 @@ export default function HobAccPanel() {
   return (
     <div className="slide-in on-left" id="about">
       <h2>Hobbies and Accolades</h2>
-      <HobbiesContainer className="section">
+      <HobbiesContainer>
         <PanelTitle>
           {userIsAdmin() && (
           <button

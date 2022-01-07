@@ -7,6 +7,7 @@ const Body = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  margin: 15px;
 `;
 
 const NavButton = styled.a`
@@ -26,8 +27,8 @@ export default function Footer() {
           <i className="fas fa-file-signature" />
           Craig Wellspring
         </NavButton>
-        <TopButton />
       </Body>
+      <TopButton />
     </div>
   );
 }

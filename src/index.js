@@ -64,7 +64,7 @@ const rotateObj = (obj, rate = rotationRate) => {
 
 // STARS
 const addStar = () => {
-  const star = new THREE.Mesh(new THREE.SphereGeometry(0.1, 24, 24), starMaterial);
+  const star = new THREE.Mesh(new THREE.SphereGeometry(0.05, 24, 24), starMaterial);
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(350));
   star.position.set(x, y, z);
   scene.add(star);
@@ -201,23 +201,6 @@ animate();
 // DOM
 ReactDOM.render(
   <React.StrictMode>
-    {/* <div style={{
-      position: 'absolute',
-      top: '0px',
-      height: '100vh',
-      width: '100vw',
-    }}
-    >
-      <div style={{
-        position: 'fixed',
-        left: '5%',
-        top: '25%',
-        bottom: '25%',
-        border: '5px dashed white',
-        width: '90vw',
-      }}
-      />
-    </div> */}
     <BrowserRouter>
       <Initialize />
     </BrowserRouter>

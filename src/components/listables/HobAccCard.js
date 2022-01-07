@@ -1,33 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
 import { userIsAdmin } from '../../api/auth';
 import { deleteHobAcc } from '../../api/data/hobacc-data';
 import HobAccForm from '../forms/HobAccForm';
 
 const Card = styled.div`
-  background-color: ${colorScheme.backgroundColorFaded};
-  &:hover {
-    background-color: ${colorScheme.backgroundColor};
-  }
   width: 200px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    Calc(100% - 10px) 0,
-    100% 10px,
-    100% Calc(100% - 10px),
-    Calc(100% - 10px) 100%,
-    10px 100%,
-    0% Calc(100% - 10px),
-    0 10px
-  );
 `;
 
 const Title = styled.div`
@@ -57,7 +40,7 @@ export default function HobAccCard({ obj, setHobAccs }) {
   };
 
   return (
-    <Card className="card-style">
+    <Card className="section">
       {showEditForm ? (
         <HobAccForm
           setHobAccs={setHobAccs}
