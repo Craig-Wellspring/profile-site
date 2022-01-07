@@ -1,6 +1,5 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import 'variables';
-@import 'three';
 @import 'animation';
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
 
@@ -13,6 +12,17 @@ body {
   background-color: #000;
   color: $textColor !important;
   font-family: 'Chakra Petch' !important;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#root {
+  position: absolute;
+  width: 100%;
 }
 
 .panel {
