@@ -250,6 +250,15 @@ const animate = () => {
 };
 animate();
 
+// HANDLE WINDOW RESIZE
+window.onresize = () => {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+};
+
 // DOM
 ReactDOM.render(
   <React.StrictMode>
