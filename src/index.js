@@ -257,6 +257,18 @@ window.onresize = () => {
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
+  // sb.bloom1.setSize(
+  //   width * window.devicePixelRatio,
+  //   height * window.devicePixelRatio,
+  // );
+  // sb.bloom2.setSize(
+  //   width * window.devicePixelRatio,
+  //   height * window.devicePixelRatio,
+  // );
+  sb.final.setSize(
+    width * window.devicePixelRatio,
+    height * window.devicePixelRatio,
+  );
 };
 
 // DOM
