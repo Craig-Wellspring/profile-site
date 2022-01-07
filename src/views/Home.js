@@ -21,7 +21,6 @@ const HomeScroll = styled.div`
 @media only screen and (min-width: 800px) {
   height: 7720px;
 }
-
 `;
 
 export default function Home() {

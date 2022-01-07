@@ -7,7 +7,7 @@ const Body = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  margin: 15px;
+  margin: 80px 0px 20px 0px;
 `;
 
 const NavButton = styled.a`
