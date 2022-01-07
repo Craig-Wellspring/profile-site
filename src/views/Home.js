@@ -15,17 +15,14 @@ const HomeScroll = styled.div`
   row-gap: 40px;
   align-items: center;
   width: 100%;
+  height: 100%;
   position: relative;
   margin: 0px 0px 50px 0px;
-
-@media only screen and (min-width: 800px) {
-  height: 7720px;
-}
 `;
 
 export default function Home() {
   return (
-    <HomeScroll>
+    <HomeScroll id="homescroll">
       <div id="home" style={{ position: 'absolute', scrollMarginTop: '200px' }} />
       <div style={{ height: '400px', width: '100%' }} />
       <Biography />

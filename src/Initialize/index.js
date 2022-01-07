@@ -12,6 +12,10 @@ const AppContainer = styled.div`
   align-items: center;
   text-align: center;
   overflow-x: hidden;
+
+  @media only screen and (min-width: 800px) {
+    height: 7950px;
+  }
 `;
 
 function Initialize() {
@@ -33,7 +37,7 @@ function Initialize() {
   }, []);
 
   return (
-    <AppContainer>
+    <AppContainer id="app-container">
       <Navigation />
       <Routes />
     </AppContainer>
