@@ -6,6 +6,7 @@ import { getBioData, updateBioData } from '../../api/data/bio-data';
 
 const Bio = styled.div`
   text-align: left;
+  max-width: 500px;
 `;
 
 const BioInfo = styled.span``;

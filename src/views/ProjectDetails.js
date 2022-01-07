@@ -64,6 +64,7 @@ const Images = styled.div`
   max-width: 800px;
 `;
 const Image = styled.img`
+  max-height: 400px;
   clip-path: polygon(
     0 10px,
     10px 0,

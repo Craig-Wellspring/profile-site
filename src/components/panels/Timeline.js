@@ -32,7 +32,13 @@ export default function Timeline() {
   }, []);
 
   return (
-    <div id="timeline" className="slide-in on-left" style={{ width: '90%' }}>
+    <div
+      id="timeline"
+      className="slide-in on-left"
+      style={{
+        width: '90%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+      }}
+    >
       <h2>Timeline</h2>
       <VerticalTimeline lineColor={colorScheme.textColor}>
         {events.map((event) => (
@@ -46,6 +52,7 @@ export default function Timeline() {
           />
         ))}
       </VerticalTimeline>
+      <h2>Present</h2>
       {showForm && (
         <TimelineEventForm
           eventObj={editEventObj}
