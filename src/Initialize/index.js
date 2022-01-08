@@ -12,10 +12,7 @@ const AppContainer = styled.div`
   align-items: center;
   text-align: center;
   overflow-x: hidden;
-
-  @media only screen and (min-width: 800px) {
-    height: 7950px;
-  }
+  height: 100%;
 `;
 
 function Initialize() {
