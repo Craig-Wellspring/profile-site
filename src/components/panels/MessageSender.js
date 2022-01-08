@@ -9,6 +9,7 @@ const Messenger = styled.form`
   gap: 20px;
   align-items: center;
   justify-content: top;
+  width: 100%;
 
   padding: 20px;
 `;
@@ -48,11 +49,11 @@ export default function MessageSender() {
 
   return (
     <Messenger className="section" onSubmit={handleSubmit}>
-      Send a Message
+      <h4>Send a Message</h4>
       <input
         type="text"
         className="input-field"
-        style={{ textAlign: 'center', width: '90%' }}
+        style={{ textAlign: 'center', width: '85%' }}
         name="name"
         placeholder="Your Name"
         value={input.name}
@@ -63,7 +64,8 @@ export default function MessageSender() {
         className="input-field"
         name="message"
         placeholder="Enter a message"
-        rows="5"
+        style={{ width: '95%' }}
+        rows="7"
         value={input.message}
         onChange={handleChange}
         required

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import colorScheme from '../../JSON/globalVars/colorScheme.json';
 import resume from '../../resources/CraigWellspringResume2021.pdf';
+import cv from '../../resources/CraigWellspringCV2021.pdf';
 
 const ResumePanel = styled.div`
   display: flex;
@@ -39,6 +41,28 @@ const PreviewImage = styled.img`
   height: 280px;
 `;
 
+const ImageOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${colorScheme.backgroundColorFaded};
+
+  color: ${colorScheme.textColor};
+  -webkit-text-fill-color: ${colorScheme.textColor};
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: ${colorScheme.backgroundColor};
+  font-size: 300%;
+  font-weight: 1200;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 30px;
+`;
+
 const Overlay = styled.div`
   position: absolute;
   top: 8.5%;
@@ -53,27 +77,36 @@ const Overlay = styled.div`
   gap: 10px;
 `;
 
-export default function Resume() {
+export default function Resume({ type }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
   return (
     <ResumePanel className="section">
       <PreviewImage
-        src="https://i.imgur.com/xfWTxKe.png"
+        src={
+          type === 'resume'
+            ? 'https://i.imgur.com/xfWTxKe.png'
+            : 'https://i.imgur.com/xfWTxKe.png'
+        }
         alt="Resume Preview"
         className="beveled-border"
-        onClick={() => setShowOverlay(true)}
       />
+      <ImageOverlay
+        onClick={() => setShowOverlay(true)}
+      >{type === 'resume' ? 'Tech Resume' : 'Curriculum Vitae'}
+      </ImageOverlay>
       {showOverlay && (
         <Overlay
           className="beveled-border"
           onClick={() => setShowOverlay(false)}
         >
-          <Title>Resume</Title>
-          <DownloadLink href={resume} target="_blank">
+          <Title>
+            {type === 'resume' ? 'Resume' : 'CV'}
+          </Title>
+          <DownloadLink href={type === 'resume' ? resume : cv} target="_blank">
             View
           </DownloadLink>
-          <DownloadLink href={resume} download>
+          <DownloadLink href={type === 'resume' ? resume : cv} download>
             Download
           </DownloadLink>
         </Overlay>
@@ -81,3 +114,7 @@ export default function Resume() {
     </ResumePanel>
   );
 }
+
+Resume.propTypes = {
+  type: PropTypes.string.isRequired,
+};
