@@ -99,7 +99,7 @@ export default function SpaceScene() {
       // Wire Objects
       rotateObj(sphere, 0.003);
       ring.rotation.z += 0.005;
-      rotatingObjects.forEach(rotateObj);
+      rotatingObjects.forEach((obj) => rotateObj(obj));
     };
 
     // CAMERA
