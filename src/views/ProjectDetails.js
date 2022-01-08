@@ -15,6 +15,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-bottom: 50px;
 `;
 
 const Header = styled.div`

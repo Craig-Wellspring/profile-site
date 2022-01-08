@@ -49,7 +49,7 @@ export default function MessageSender() {
 
   return (
     <Messenger className="section" onSubmit={handleSubmit}>
-      Send a Message
+      <h4>Send a Message</h4>
       <input
         type="text"
         className="input-field"
