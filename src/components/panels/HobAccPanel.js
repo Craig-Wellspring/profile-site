@@ -10,17 +10,10 @@ const HobbiesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  margin: 20px;
 
   max-width: 800px;
-`;
-
-const PanelTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin: 10px;
 `;
 
 const CardContainer = styled.div`
@@ -50,25 +43,7 @@ export default function HobAccPanel() {
       <div className="slide-in on-left">
         <h2>Hobbies and Accolades</h2>
         <HobbiesContainer>
-          <PanelTitle>
-            {userIsAdmin() && (
-              <button
-                type="button"
-                className={showCreateForm ? 'orange-button' : 'blue-button'}
-                onClick={() => setShowCreateForm(!showCreateForm)}
-              >
-                <i className={`fas fa-${showCreateForm ? 'times' : 'plus'}`} />
-              </button>
-            )}
-          </PanelTitle>
           <CardContainer>
-            {showCreateForm && (
-              <HobAccForm
-                setHobAccs={setHobAccs}
-                setShowCreateForm={setShowCreateForm}
-              />
-            )}
-
             {hobAccs.map((hobby) => (
               <HobAccCard
                 key={hobby.firebaseKey}
@@ -77,7 +52,22 @@ export default function HobAccPanel() {
                 setShowCreateForm={setShowCreateForm}
               />
             ))}
+            {showCreateForm && (
+              <HobAccForm
+                setHobAccs={setHobAccs}
+                setShowCreateForm={setShowCreateForm}
+              />
+            )}
           </CardContainer>
+          {userIsAdmin() && (
+          <button
+            type="button"
+            className={showCreateForm ? 'orange-button' : 'blue-button'}
+            onClick={() => setShowCreateForm(!showCreateForm)}
+          >
+            <i className={`fas fa-${showCreateForm ? 'times' : 'plus'}`} />
+          </button>
+          )}
         </HobbiesContainer>
       </div>
     </div>

@@ -59,16 +59,16 @@ const recolorMat = (mat, color) => {
   mat.color.set(color);
 };
 
-// OBJECTS
+// OBJECT HANDLING
 const spawnObj = (mesh, pos) => {
   const newObj = mesh;
   scene.add(newObj);
   newObj.position.set(pos.x, pos.y, pos.z);
   return newObj;
 };
-const rotationRate = 0.005;
 const wireObjects = [];
-const rotateObj = (obj, rate = rotationRate) => {
+const defRotationRate = 0.005;
+const rotateObj = (obj, rate = defRotationRate) => {
   const target = obj;
   target.rotation.x += rate;
   target.rotation.y += rate;
@@ -101,6 +101,17 @@ const moonMesh = new THREE.Mesh(
   }),
 );
 const moon = spawnObj(moonMesh, { x: 140, y: 67.25, z: 110 });
+
+// SATELLITE
+const satTexture = new THREE.TextureLoader().load(moonImage);
+const satMesh = new THREE.Mesh(
+  new THREE.SphereGeometry(0.2, 8, 8),
+  new THREE.MeshStandardMaterial({
+    map: satTexture,
+    color: 'gray',
+  }),
+);
+const satellite = spawnObj(satMesh, { x: 145, y: 67.25, z: 110 });
 
 // SUN
 const sunTexture = new THREE.TextureLoader().load(sunImage);
@@ -218,6 +229,7 @@ const animate = () => {
 
   // Rotation
   moon.rotation.y += 0.0008;
+  satellite.rotation.y += 0.001;
   sun.rotation.y += 0.0005;
   rotateObj(sphere, 0.003);
   ring.rotation.z += 0.005;

@@ -7,7 +7,7 @@ const Card = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 200px;
+  max-width: 300px;
 `;
 
 const Title = styled.input`

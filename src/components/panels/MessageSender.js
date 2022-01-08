@@ -39,7 +39,6 @@ export default function MessageSender() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.warn(input);
     createMessage({ ...input, uid: currentUID() || 'Nonuser' });
     setInput((prevState) => ({
       name: prevState.name,
@@ -49,7 +48,7 @@ export default function MessageSender() {
 
   return (
     <Messenger className="section" onSubmit={handleSubmit}>
-      <h4>Send a Message</h4>
+      <h4>Leave a Message</h4>
       <input
         type="text"
         className="input-field"
