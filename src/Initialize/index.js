@@ -4,7 +4,6 @@ import 'firebase/auth';
 import styled from 'styled-components';
 import Navigation from '../components/panels/Navigation';
 import Routes from '../routes';
-import SpaceScene from '../three/SpaceScene';
 
 const AppContainer = styled.div`
   display: flex;
@@ -35,13 +34,10 @@ function Initialize() {
   }, []);
 
   return (
-    <>
-      <SpaceScene />
-      <AppContainer id="app-container">
-        <Navigation />
-        <Routes />
-      </AppContainer>
-    </>
+    <AppContainer id="app-container">
+      <Navigation />
+      <Routes />
+    </AppContainer>
   );
 }
 
