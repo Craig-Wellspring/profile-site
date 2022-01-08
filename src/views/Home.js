@@ -15,9 +15,12 @@ const HomeScroll = styled.div`
   row-gap: 40px;
   align-items: center;
   width: 100%;
-  height: 100%;
   position: relative;
   margin: 0px 0px 50px 0px;
+  
+  @media only screen and (min-width: 800px) {
+    height: 7790px;
+  }
 `;
 
 export default function Home() {

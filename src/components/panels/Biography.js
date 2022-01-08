@@ -9,7 +9,9 @@ const Bio = styled.div`
   max-width: 500px;
 `;
 
-const BioInfo = styled.span``;
+const BioInfo = styled.span`
+  white-space: pre-wrap;
+`;
 
 const EditBioButton = styled.button`
   position: absolute;
