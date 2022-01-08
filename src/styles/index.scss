@@ -25,6 +25,14 @@ canvas {
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $warningColor;
+}
+
 .panel {
   background-color: $backgroundColorFaded;
   max-width: 90%;
