@@ -32,9 +32,12 @@ export default function Contact() {
         <Body>
           <ContactPanel>
             <LinkTree />
-            <Resume />
+            <MessageSender />
           </ContactPanel>
-          <MessageSender />
+          <ContactPanel>
+            <Resume type="resume" />
+            <Resume type="cv" />
+          </ContactPanel>
         </Body>
       </div>
     </div>
