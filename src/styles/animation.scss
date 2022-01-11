@@ -1,31 +1,31 @@
 // SLIDERS
 .slide-in {
-  transition: opacity 150ms ease-in, transform 250ms ease-in-out;
-}
+  transition: opacity 150ms ease-in, transform 250ms ease-out;
 
-.slide-in.on-left, .slide-in.on-right {
-  opacity: 0;
-}
+  &.on-left, &.on-right {
+    opacity: 0;
+  }
 
-.slide-in.showingFL, .slide-in.showingFR {
-  opacity: 1;
-  transform: translateX(0) skewX(0);
-}
+  &.on-left {
+    transform: translateX(-100%) skewX(-35deg);
+  }
 
-.slide-in.on-left {
-  transform: translateX(-100%) skewX(-35deg);
-}
+  &.on-right {
+    transform: translateX(100%) skewX(35deg);
+  }
 
-.slide-in.on-right {
-  transform: translateX(100%) skewX(35deg);
+  &.showingFL, &.showingFR {
+    opacity: 1;
+    transform: translateX(0) skewX(0);
+  }
 }
 
 // FADERS
 .fade-in {
   opacity: 0;
-  transition: opacity 200ms ease-in;
-}
+  transition: opacity 200ms ease-in-out;
 
-.fade-in.showing {
-  opacity: 1;
+  &.showing {
+    opacity: 1;
+  }
 }

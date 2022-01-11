@@ -23,7 +23,10 @@ export default function LinkTree() {
       </svg>
 
       <i className="fas fa-envelope" />
-      <NavLink href="mailto:wellspring.craig@gmail.com" className="navlink">
+      <NavLink
+        href="mailto:wellspring.craig@gmail.com"
+        className="navlink"
+      >
         <svg viewBox="0 0 300 20">
           <text x="0" y="15">
             wellspring.craig@gmail.com

@@ -12,22 +12,49 @@ const sunTexture = new THREE.TextureLoader().load(sunImage);
 const sunNormalTexture = new THREE.TextureLoader().load(sunNormal);
 const portraitTexture = new THREE.TextureLoader().load(portraitImage);
 
-export default ({
-  star: new THREE.MeshBasicMaterial({ color: 0xffffff }),
+export const baseColors = {
+  star: 'white',
+  sun: 'palegoldenrod',
+  moon: 'lightgray',
+  satellite: '#4D3D3D',
+  spaceShip: '#4D3D3D',
+  avatar: 'white',
+  wire: colorScheme.textColor,
+};
+
+export const materials = {
+  star: new THREE.MeshBasicMaterial({
+    color: baseColors.star,
+    name: 'star',
+  }),
   moon: new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: moonNormalTexture,
-    color: 'gray',
+    color: baseColors.moon,
+    name: 'moon',
   }),
-  satellite: new THREE.MeshStandardMaterial({ color: 'gray' }),
+  satellite: new THREE.MeshStandardMaterial({
+    color: baseColors.satellite,
+    name: 'satellite',
+  }),
+  spaceShip: new THREE.MeshStandardMaterial({
+    color: baseColors.spaceShip,
+    name: 'spaceShip',
+  }),
   sun: new THREE.MeshStandardMaterial({
     map: sunTexture,
     normalMap: sunNormalTexture,
-    color: 'yellow',
+    color: baseColors.sun,
+    name: 'sun',
   }),
-  avatar: new THREE.MeshBasicMaterial({ map: portraitTexture, color: 'white' }),
+  avatar: new THREE.MeshBasicMaterial({
+    map: portraitTexture,
+    color: baseColors.avatar,
+    name: 'avatar',
+  }),
   wire: new THREE.MeshBasicMaterial({
-    color: colorScheme.textColor,
+    color: baseColors.wire,
     wireframe: true,
+    name: 'wire',
   }),
-});
+};

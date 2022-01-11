@@ -7,7 +7,7 @@ const Body = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  margin: 200px 15px 20px 15px;
+  margin: 0px 15px 20px 15px;
 `;
 
 const NavButton = styled.a`
@@ -21,7 +21,7 @@ export default function Footer() {
     <div className="fade-in" id="footer">
       <Body className="section">
         <div>
-          This website was developed using ReactJS, ThreeJS, Sass, and Google Firebase.
+          This website was developed using Three.js, React.js, Sass, and Firebase.
         </div>
         <NavButton href="/#contact" className="navlink">
           <i className="fas fa-file-signature" />
