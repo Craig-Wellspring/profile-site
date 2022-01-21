@@ -26,7 +26,6 @@ const HomeScroll = styled.div`
 export default function Home() {
   return (
     <HomeScroll id="homescroll">
-      <div id="home" style={{ position: 'absolute', scrollMarginTop: '200px' }} />
       <div style={{ height: '400px', width: '100%' }} />
       <Biography />
       <Projects />
@@ -34,6 +33,7 @@ export default function Home() {
       <HobAccPanel />
       <Timeline />
       <Contact />
+      <div style={{ height: '200px', width: '100%' }} />
       <Footer />
     </HomeScroll>
   );

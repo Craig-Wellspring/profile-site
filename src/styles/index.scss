@@ -40,17 +40,7 @@ canvas {
   display: flex;
   flex-direction: column;
 
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    Calc(100% - 10px) 0,
-    100% 10px,
-    100% Calc(100% - 10px),
-    Calc(100% - 10px) 100%,
-    10px 100%,
-    0% Calc(100% - 10px),
-    0 10px
-  );
+  clip-path: $beveledBorder;
   padding: 20px;
 }
 
@@ -65,17 +55,7 @@ canvas {
 
   padding: 20px;
   border: 1px solid $textColor;
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    Calc(100% - 10px) 0,
-    100% 10px,
-    100% Calc(100% - 10px),
-    Calc(100% - 10px) 100%,
-    10px 100%,
-    0% Calc(100% - 10px),
-    0 10px
-  );
+  clip-path: $beveledBorder;
 }
 
 .input-field {
@@ -114,17 +94,7 @@ input::placeholder {
 
   padding: 6px 16px;
   border: 0;
-  clip-path: polygon(
-    0 5px,
-    5px 0,
-    Calc(100% - 5px) 0,
-    100% 5px,
-    100% Calc(100% - 5px),
-    Calc(100% - 5px) 100%,
-    5px 100%,
-    0% Calc(100% - 5px),
-    0 5px
-  );
+  clip-path: $beveledBorderSm;
 
   &:active {
     background-color: $warningColor;
@@ -137,17 +107,7 @@ input::placeholder {
 
   padding: 6px 16px;
   border: 0;
-  clip-path: polygon(
-    0 5px,
-    5px 0,
-    Calc(100% - 5px) 0,
-    100% 5px,
-    100% Calc(100% - 5px),
-    Calc(100% - 5px) 100%,
-    5px 100%,
-    0% Calc(100% - 5px),
-    0 5px
-  );
+  clip-path: $beveledBorderSm;
 
   &:active {
     background-color: $highlightColor;
@@ -173,17 +133,7 @@ svg {
 }
 
 .beveled-border {
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    Calc(100% - 10px) 0,
-    100% 10px,
-    100% Calc(100% - 10px),
-    Calc(100% - 10px) 100%,
-    10px 100%,
-    0% Calc(100% - 10px),
-    0 10px
-  );
+  clip-path: $beveledBorder;
 }
 
 .navlink {

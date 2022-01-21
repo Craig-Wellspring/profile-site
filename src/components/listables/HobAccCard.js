@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { userIsAdmin } from '../../api/auth';
 import { deleteHobAcc } from '../../api/data/hobacc-data';
 import HobAccForm from '../forms/HobAccForm';
+import colorScheme from '../../JSON/globalVars/colorScheme.json';
 
 const Card = styled.div`
   width: 300px;
@@ -15,7 +16,7 @@ const Card = styled.div`
 
 const Title = styled.div`
   padding: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${colorScheme.textColor};
 `;
 
 const Description = styled.div`

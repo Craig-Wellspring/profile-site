@@ -1,44 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import firebase from 'firebase/app';
+import React from 'react';
 import 'firebase/auth';
 import styled from 'styled-components';
+import SpaceScene from '../three/SpaceScene';
 import Navigation from '../components/panels/Navigation';
 import Routes from '../routes';
 
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const App = styled.div`
   text-align: center;
   overflow-x: hidden;
   height: 100%;
 `;
 
-function Initialize() {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((authedUser) => {
-      if (authedUser) {
-        const userInfoObj = {
-          fullName: authedUser.displayName,
-          profileImage: authedUser.photoURL,
-          uid: authedUser.uid,
-          user: authedUser.email.split('@')[0],
-        };
-        setUser(userInfoObj);
-      } else if (user || user === null) {
-        setUser(false);
-      }
-    });
-  }, []);
-
+export default function Initialize() {
   return (
-    <AppContainer id="app-container">
-      <Navigation />
-      <Routes />
-    </AppContainer>
+    <>
+      <SpaceScene />
+      <App id="home">
+        <Navigation />
+        <Routes />
+      </App>
+    </>
   );
 }
-
-export default Initialize;

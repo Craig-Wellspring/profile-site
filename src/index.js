@@ -4,24 +4,19 @@ import './styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import Initialize from './Initialize';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { firebaseConfig } from './api/apiKeys';
-import SpaceScene from './three/SpaceScene';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 firebase.initializeApp(firebaseConfig);
 
 // DOM
 ReactDOM.render(
-  <>
-    <SpaceScene />
-    <React.StrictMode>
-      <BrowserRouter>
-        <Initialize />
-      </BrowserRouter>
-    </React.StrictMode>
-  </>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <Initialize />
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root'),
 );
 

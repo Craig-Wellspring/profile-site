@@ -3,24 +3,22 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import SelectiveBloom from './SelectiveBloom';
 import bgImage from '../resources/images/background.png';
-import colorScheme from '../JSON/globalVars/colorScheme.json';
-import meshes from './meshes';
-import materials from './materials';
+import { baseColors, materials } from './materials';
 import objects from './objects';
+import positions from './positions';
+import generateStars from './generateStars';
 
 export default function SpaceScene() {
   useEffect(() => {
+    // SCENE AND RENDERER
+    const scene = new THREE.Scene();
+    const renderer = new THREE.WebGL1Renderer({ canvas: document.querySelector('#bg') });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
     // HELPERS
     // const gridHelper = new THREE.GridHelper(500, 500);
     // scene.add(gridHelper);
-
-    // SCENE
-    const scene = new THREE.Scene();
-    const renderer = new THREE.WebGL1Renderer({
-      canvas: document.querySelector('#bg'),
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
 
     // LIGHTING
     const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -32,8 +30,8 @@ export default function SpaceScene() {
     const spaceBG = () => { scene.background = backgroundImg; };
 
     // MATERIAL HANDLING
-    const blackoutMat = (mat) => { mat.color.set(0x000000); };
-    const recolorMat = (mat, color) => { mat.color.set(color); };
+    const blackoutMat = (targetMat) => { targetMat.color.set(0x000000); };
+    const recolorMat = (targetMat) => { targetMat.color.set(baseColors[targetMat.name]); };
 
     // OBJECT HANDLING
     const spawnObj = (obj) => {
@@ -49,34 +47,35 @@ export default function SpaceScene() {
       target.rotation.z += rate;
     };
 
-    // AVATAR
+    // SPAWN OBJECTS
+    // Avatar
     const avatar = window.location.pathname.includes('projects')
       ? spawnObj(objects.smallBox)
       : spawnObj(objects.avatarBox);
 
-    // STARS
-    const addStar = () => {
-      const { star } = meshes;
-      const [x, y, z] = Array(3)
-        .fill()
-        .map(() => THREE.MathUtils.randFloatSpread(350));
-      star.position.set(x, y, z);
-      scene.add(star);
-    };
-    Array(400).fill().forEach(addStar);
-
-    // CELESTIAL OBJECTS
-    const moon = spawnObj(objects.moon);
-    const satellite = moon.add(objects.satellite.mesh);
-    // console.warn(satellite);
+    // Sun, Moon, Stars
+    generateStars(scene, 300, 350);
     const sun = spawnObj(objects.sun);
+    const moon = spawnObj(objects.moon);
 
-    // WIRE OBJECTS
+    // Satellite
+    const satOrbit = spawnObj({ mesh: new THREE.Object3D(), pos: positions.moon });
+    const satellite = objects.satellite.mesh;
+    satellite.position.x += 2;
+    satellite.rotation.x = -90;
+    satOrbit.rotation.x -= 0.3;
+    satOrbit.rotation.y -= 0.5;
+    satOrbit.add(satellite);
+
+    // Spaceship
+    spawnObj(objects.spaceShip);
+
+    // Wire Objects
     const sphere = spawnObj(objects.planetSphere);
     const ring = spawnObj(objects.planetRing);
     ring.rotation.x = -10;
     const wireObjects = [
-      objects.torus,
+      objects.coil,
       objects.d4,
       objects.d6,
       objects.d8,
@@ -85,7 +84,7 @@ export default function SpaceScene() {
       objects.cylinder,
       objects.knot,
       objects.cone,
-      objects.coil,
+      objects.torus,
     ];
     const rotatingObjects = wireObjects.map(spawnObj);
 
@@ -93,7 +92,7 @@ export default function SpaceScene() {
     const animateObjects = () => {
       // Celestial Objects
       moon.rotation.y += 0.0008;
-      satellite.rotation.y += 0.001;
+      satOrbit.rotation.y += 0.01;
       sun.rotation.y += 0.0005;
 
       // Wire Objects
@@ -123,29 +122,28 @@ export default function SpaceScene() {
     const controls = new OrbitControls(camera, renderer.domElement);
 
     // SHADER
+    const brightBloomTargets = ['sun', 'star'];
+    const softBloomTargets = ['wire'];
+    const noBloomTargets = ['avatar', 'moon', 'satellite'];
     const sb = new SelectiveBloom(scene, camera, renderer);
     const runShader = () => {
-      // Bright Bloom - Target: Sun, Stars
+      // 1st Pass: Bright Bloom
+      // gridHelper.material.color.set(0x000000);
       blackoutBG();
-      blackoutMat(materials.moon);
-      blackoutMat(materials.satellite);
-      blackoutMat(materials.wire);
-      blackoutMat(materials.avatar);
+      softBloomTargets.forEach((obj) => blackoutMat(materials[obj]));
+      noBloomTargets.forEach((obj) => blackoutMat(materials[obj]));
       sb.bloom1.render();
 
-      // Soft Bloom - Target: Wire Objects
-      blackoutMat(materials.sun);
-      blackoutMat(materials.star);
-      recolorMat(materials.wire, colorScheme.textColor);
+      // 2nd Pass: Soft Bloom
+      brightBloomTargets.forEach((obj) => blackoutMat(materials[obj]));
+      softBloomTargets.forEach((obj) => recolorMat(materials[obj]));
       sb.bloom2.render();
 
-      // No Bloom - Target: All
+      // Final Pass: No Bloom
+      // gridHelper.material.color.set(0xffffff);
+      brightBloomTargets.forEach((obj) => recolorMat(materials[obj]));
+      noBloomTargets.forEach((obj) => recolorMat(materials[obj]));
       spaceBG();
-      recolorMat(materials.star, 'white');
-      recolorMat(materials.sun, 'yellow');
-      recolorMat(materials.moon, 'gray');
-      recolorMat(materials.satellite, 'gray');
-      recolorMat(materials.avatar, 'white');
       sb.final.render();
     };
 
@@ -175,8 +173,8 @@ export default function SpaceScene() {
       requestAnimationFrame(renderLoop);
       animateObjects();
       runShader();
-      controls.update();
       // renderer.render(scene, camera);
+      controls.update();
     };
     renderLoop();
   }, []);
