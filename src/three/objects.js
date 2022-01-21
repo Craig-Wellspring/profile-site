@@ -6,6 +6,9 @@ export default ({
     mesh: meshes.moon,
     pos: positions.moon,
   },
+  satellite: {
+    mesh: meshes.satellite,
+  },
   spaceShip: {
     mesh: meshes.spaceShip,
     pos: positions.spaceShip,
