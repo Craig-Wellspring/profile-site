@@ -7,6 +7,7 @@ export default ({
   moon: new THREE.Mesh(geometries.moon, materials.moon),
   satellite: new THREE.Mesh(geometries.satellite, materials.satellite),
   spaceShip: new THREE.Mesh(geometries.spaceShip, materials.spaceShip),
+  spaceShipEngine: new THREE.Mesh(geometries.spaceShipEngine, materials.spaceShipEngine),
   sun: new THREE.Mesh(geometries.sun, materials.sun),
   avatarBox: new THREE.Mesh(geometries.avatar, materials.avatar),
   smallBox: new THREE.Mesh(geometries.smallBox, materials.wire),

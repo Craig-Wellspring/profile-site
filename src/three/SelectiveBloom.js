@@ -10,8 +10,8 @@ class SelectiveBloom {
 
     const bloomPass1 = new UnrealBloomPass(
       new Vector2(window.innerWidth, window.innerHeight),
-      5, // Strength
-      1, // Radius
+      3, // Strength
+      1.5, // Radius
       0, // Clip Threshold
     );
 
@@ -22,7 +22,7 @@ class SelectiveBloom {
 
     const bloomPass2 = new UnrealBloomPass(
       new Vector2(window.innerWidth, window.innerHeight),
-      2.5, // Strength
+      2, // Strength
       1, // Radius
       0, // Clip Threshold
     );

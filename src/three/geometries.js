@@ -1,10 +1,11 @@
 import * as THREE from 'three';
 
 export default ({
-  star: () => new THREE.SphereGeometry(Math.random() * 0.1 + 0.05, 4, 4),
+  star: () => new THREE.SphereGeometry(Math.random() * 0.2 + 0.05, 4, 4),
   moon: new THREE.SphereGeometry(1.5, 32, 32),
   satellite: new THREE.SphereGeometry(0.2, 4, 3, 0, Math.PI * 2, 0.333, 5.04),
-  spaceShip: new THREE.TorusGeometry(4, 3, 4, 6, Math.PI * 2),
+  spaceShip: new THREE.TorusGeometry(1.4, 0.7, 4, 6, Math.PI * 2),
+  spaceShipEngine: new THREE.SphereGeometry(0.4, 4, 4),
   sun: new THREE.SphereGeometry(10, 32, 32),
   avatar: new THREE.BoxGeometry(7, 7, 7),
   smallBox: new THREE.BoxGeometry(3, 3, 3),
