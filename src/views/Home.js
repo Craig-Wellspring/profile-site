@@ -19,14 +19,14 @@ const HomeScroll = styled.div`
   margin: 0px 0px 50px 0px;
   
   @media only screen and (min-width: 800px) {
-    height: 7790px;
+    height: 7830px;
   }
 `;
 
 export default function Home() {
   return (
     <HomeScroll id="homescroll">
-      <div style={{ height: '400px', width: '100%' }} />
+      <div style={{ height: '500px', width: '100%' }} />
       <Biography />
       <Projects />
       <Technologies />

@@ -13,6 +13,10 @@ export default ({
     mesh: meshes.spaceShip,
     pos: positions.spaceShip,
   },
+  spaceShipEngine: {
+    mesh: meshes.spaceShipEngine,
+    pos: positions.spaceShip,
+  },
   sun: {
     mesh: meshes.sun,
     pos: positions.sun,

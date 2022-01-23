@@ -99,6 +99,7 @@ export default function Navigation() {
           href="https://github.com/Craig-Wellspring"
           className="navlink"
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-github" />
         </NavIcon>
@@ -106,6 +107,7 @@ export default function Navigation() {
           href="https://www.linkedin.com/in/craigwellspring/"
           className="navlink"
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-linkedin" />
         </NavIcon>
