@@ -39,7 +39,7 @@ export default function HobAccPanel() {
   }, []);
 
   return (
-    <div id="about" style={{ scrollMarginTop: '50px' }}>
+    <div style={{ scrollMarginTop: '50px' }}>
       <div className="slide-in on-left">
         <h2>Hobbies and Accolades</h2>
         <HobbiesContainer>

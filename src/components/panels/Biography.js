@@ -60,7 +60,7 @@ export default function Biography() {
   };
 
   return (
-    <div id="biography">
+    <div id="about" style={{ scrollMarginTop: '50px' }}>
       <div className="slide-in on-left">
         <h2>Bio</h2>
         <Bio className="section">

@@ -62,10 +62,11 @@ const Body = styled.div`
 `;
 
 const Images = styled.div`
-  max-width: 800px;
 `;
 const Image = styled.img`
-  max-height: 400px;
+  max-width: 800px;
+  max-height: 600px;
+  object-fit: contain;
   clip-path: polygon(
     0 10px,
     10px 0,

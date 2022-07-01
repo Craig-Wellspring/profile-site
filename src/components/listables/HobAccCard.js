@@ -8,15 +8,23 @@ import colorScheme from '../../JSON/globalVars/colorScheme.json';
 
 const Card = styled.div`
   width: 300px;
+  height: 300px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
 `;
 
 const Title = styled.div`
-  padding: 10px;
+  font-size: 120%;
+  padding-bottom: 5px;
   border-bottom: 1px solid ${colorScheme.textColor};
+`;
+
+const Icon = styled.i`
+  font-size: 50px;
+  padding-bottom: 10px;
 `;
 
 const Description = styled.div`
@@ -50,6 +58,7 @@ export default function HobAccCard({ obj, setHobAccs }) {
         />
       ) : (
         <>
+          <Icon className={`fas fa-${obj.icon || 'ban'}`} />
           <Title>{obj.name}</Title>
           <Description>{obj.desc}</Description>
           {userIsAdmin() && (
@@ -79,6 +88,7 @@ export default function HobAccCard({ obj, setHobAccs }) {
 HobAccCard.propTypes = {
   obj: PropTypes.shape({
     name: PropTypes.string,
+    icon: PropTypes.string,
     desc: PropTypes.string,
     type: PropTypes.string,
     firebaseKey: PropTypes.string,
