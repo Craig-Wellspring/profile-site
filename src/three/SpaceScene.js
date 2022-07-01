@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import SelectiveBloom from './SelectiveBloom';
-import bgImage from '../resources/images/background.png';
+// import bgImage from '../resources/images/background.png';
 import { baseColors, materials } from './materials';
 import geometries from './geometries';
 import objects from './objects';
@@ -15,6 +15,8 @@ export default function SpaceScene() {
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGL1Renderer({
       canvas: document.querySelector('#bg'),
+      antialias: true,
+      alpha: true,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -34,12 +36,12 @@ export default function SpaceScene() {
     scene.add(avatarLight);
 
     // BACKGROUND
-    const backgroundImg = new THREE.TextureLoader().load(bgImage);
+    // const backgroundImg = new THREE.TextureLoader().load(bgImage);
     const blackoutBG = () => {
-      scene.background = null;
+      // scene.background = null;
     };
     const spaceBG = () => {
-      scene.background = backgroundImg;
+      // scene.background = backgroundImg;
     };
 
     // MATERIAL HANDLING
@@ -90,7 +92,7 @@ export default function SpaceScene() {
     const rotatingObjects = wireObjects.map(spawnObj);
 
     // Sun, Moon, Stars
-    generateStars(scene, 300, 350);
+    generateStars(scene, 350, 500);
     const sun = spawnObj(objects.sun);
     sun.add(sunlight);
     const moon = spawnObj(objects.moon);
@@ -131,7 +133,7 @@ export default function SpaceScene() {
 
     // Space Ship Path
     const pathPoints = 40; // Lower numbers = fewer turns
-    const pathSegments = 10000; // Lower numbers = faster movement
+    const pathSegments = 8000; // Lower numbers = faster movement
 
     let shipPosIndex = 0;
     const randomPoints = [];
@@ -155,7 +157,7 @@ export default function SpaceScene() {
       shipAnchor.rotation.set(shipRot.x, shipRot.y, shipRot.z);
 
       shipAnchor.lookAt(spline.getPoint((shipPosIndex + 1) / pathSegments));
-      spaceShip.rotation.z += 0.1;
+      spaceShip.rotation.z += 0.13;
 
       // Celestial Objects
       moon.rotation.y += 0.0008;
