@@ -16,19 +16,14 @@ export default function LinkTree() {
   return (
     <InfoSection className="section">
       <i className="fas fa-signature" />
-      <svg viewBox="0 0 200 20">
-        <text x="0" y="15">
-          Craig Wellspring
-        </text>
-      </svg>
+      <h3>Craig Wellspring</h3>
 
       <i className="fas fa-envelope" />
-      <NavLink href="mailto:wellspring.craig@gmail.com" className="navlink">
-        <svg viewBox="0 0 300 20">
-          <text x="0" y="15">
-            wellspring.craig@gmail.com
-          </text>
-        </svg>
+      <NavLink
+        href="mailto:wellspring.craig@gmail.com"
+        className="navlink"
+      >
+        wellspring.craig@gmail.com
       </NavLink>
 
       <i className="fab fa-github" />
@@ -36,12 +31,9 @@ export default function LinkTree() {
         href="https://github.com/Craig-Wellspring"
         className="navlink"
         target="_blank"
+        rel="noreferrer"
       >
-        <svg viewBox="0 0 320 20">
-          <text x="0" y="15">
-            https://github.com/Craig-Wellspring
-          </text>
-        </svg>
+        github.com/Craig-Wellspring
       </NavLink>
 
       <i className="fab fa-linkedin" />
@@ -49,12 +41,9 @@ export default function LinkTree() {
         href="https://www.linkedin.com/in/craigwellspring/"
         className="navlink"
         target="_blank"
+        rel="noreferrer"
       >
-        <svg viewBox="0 0 320 20">
-          <text x="0" y="15">
-            https://www.linkedin.com/in/craigwellspring
-          </text>
-        </svg>
+        linkedin.com/in/craigwellspring
       </NavLink>
     </InfoSection>
   );

@@ -7,6 +7,7 @@ import { getBioData, updateBioData } from '../../api/data/bio-data';
 const Bio = styled.div`
   text-align: left;
   max-width: 500px;
+  margin: 10px;
 `;
 
 const BioInfo = styled.span`
@@ -22,8 +23,8 @@ const EditBioButton = styled.button`
 const BioEditInput = styled.textarea`
   background-color: ${colorScheme.panelColor};
   color: ${colorScheme.textColor};
-  width: 100%;
-  height: 100%;
+  min-width: 300px;
+  min-height: 400px;
 
   text-align: left;
 `;
@@ -59,7 +60,7 @@ export default function Biography() {
   };
 
   return (
-    <div id="biography">
+    <div id="about" style={{ scrollMarginTop: '50px' }}>
       <div className="slide-in on-left">
         <h2>Bio</h2>
         <Bio className="section">
@@ -69,13 +70,13 @@ export default function Biography() {
             <BioInfo>{bio}</BioInfo>
           )}
           {userIsAdmin() && (
-            <EditBioButton
-              type="button"
-              className={showForm ? 'orange-button' : 'blue-button'}
-              onClick={BioEdit}
-            >
-              <i className={`fas fa-${showForm ? 'check' : 'edit'}`} />
-            </EditBioButton>
+          <EditBioButton
+            type="button"
+            className={showForm ? 'orange-button' : 'blue-button'}
+            onClick={BioEdit}
+          >
+            <i className={`fas fa-${showForm ? 'check' : 'edit'}`} />
+          </EditBioButton>
           )}
         </Bio>
       </div>

@@ -8,7 +8,14 @@ export default ({
   },
   satellite: {
     mesh: meshes.satellite,
-    pos: positions.satellite,
+  },
+  spaceShip: {
+    mesh: meshes.spaceShip,
+    pos: positions.spaceShip,
+  },
+  spaceShipEngine: {
+    mesh: meshes.spaceShipEngine,
+    pos: positions.spaceShip,
   },
   sun: {
     mesh: meshes.sun,

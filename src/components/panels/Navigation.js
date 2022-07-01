@@ -76,14 +76,14 @@ export default function Navigation() {
   return (
     <NavBar className="navigation">
       <LeftContainer>
+        <NavButton href="/#about" className="navlink">
+          About
+        </NavButton>
         <NavButton href="/#projects" className="navlink">
           Projects
         </NavButton>
         <NavButton href="/#technologies" className="navlink">
           Technologies
-        </NavButton>
-        <NavButton href="/#about" className="navlink">
-          About
         </NavButton>
       </LeftContainer>
       <CenterContainer>
@@ -99,6 +99,7 @@ export default function Navigation() {
           href="https://github.com/Craig-Wellspring"
           className="navlink"
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-github" />
         </NavIcon>
@@ -106,6 +107,7 @@ export default function Navigation() {
           href="https://www.linkedin.com/in/craigwellspring/"
           className="navlink"
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-linkedin" />
         </NavIcon>

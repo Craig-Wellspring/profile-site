@@ -5,3 +5,26 @@ $textColor: #E9E7D0;
 $highlightColor: #256AAF;
 $warningColor: #E2552E; 
 
+$beveledBorder: polygon(
+  0 10px,
+  10px 0,
+  Calc(100% - 10px) 0,
+  100% 10px,
+  100% Calc(100% - 10px),
+  Calc(100% - 10px) 100%,
+  10px 100%,
+  0% Calc(100% - 10px),
+  0 10px
+);
+
+$beveledBorderSm: polygon(
+  0 5px,
+  5px 0,
+  Calc(100% - 5px) 0,
+  100% 5px,
+  100% Calc(100% - 5px),
+  Calc(100% - 5px) 100%,
+  5px 100%,
+  0% Calc(100% - 5px),
+  0 5px
+);
