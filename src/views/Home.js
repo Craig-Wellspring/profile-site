@@ -28,10 +28,10 @@ export default function Home() {
     <HomeScroll id="homescroll">
       <div style={{ height: '500px', width: '100%' }} />
       <Biography />
+      <Timeline />
+      <HobAccPanel />
       <Projects />
       <Technologies />
-      <HobAccPanel />
-      <Timeline />
       <Contact />
       <div style={{ height: '200px', width: '100%' }} />
       <Footer />
