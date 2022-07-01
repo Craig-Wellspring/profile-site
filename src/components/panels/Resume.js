@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colorScheme from '../../JSON/globalVars/colorScheme.json';
-import resume from '../../resources/CraigWellspringResume2021.pdf';
-import cv from '../../resources/CraigWellspringCV2021.pdf';
+import resume from '../../resources/Craig_Wellspring_Resume.pdf';
+import resumePreview from '../../resources/images/ResumePreview.png';
+import cv from '../../resources/Craig_Wellspring_CV.pdf';
+import cvPreview from '../../resources/images/CVPreview.png';
 
 const ResumePanel = styled.div`
   display: flex;
@@ -47,6 +49,7 @@ const ImageOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${colorScheme.backgroundColorFaded};
+  backdrop-filter: brightness(30%) blur(1px);
 
   color: ${colorScheme.textColor};
   -webkit-text-fill-color: ${colorScheme.textColor};
@@ -58,7 +61,7 @@ const ImageOverlay = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   gap: 10px;
   padding: 30px;
 `;
@@ -83,26 +86,19 @@ export default function Resume({ type }) {
   return (
     <ResumePanel className="section">
       <PreviewImage
-        src={
-          type === 'resume'
-            ? 'https://i.imgur.com/xfWTxKe.png'
-            : 'https://i.imgur.com/xfWTxKe.png'
-        }
+        src={type === 'resume' ? resumePreview : cvPreview}
         alt="Resume Preview"
         className="beveled-border"
       />
-      <ImageOverlay
-        onClick={() => setShowOverlay(true)}
-      >{type === 'resume' ? 'Tech Resume' : 'Curriculum Vitae'}
+      <ImageOverlay onClick={() => setShowOverlay(true)}>
+        {type === 'resume' ? 'Tech Resume' : 'Curriculum Vitae'}
       </ImageOverlay>
       {showOverlay && (
         <Overlay
           className="beveled-border"
           onClick={() => setShowOverlay(false)}
         >
-          <Title>
-            {type === 'resume' ? 'Resume' : 'CV'}
-          </Title>
+          <Title>{type === 'resume' ? 'Resume' : 'CV'}</Title>
           <DownloadLink href={type === 'resume' ? resume : cv} target="_blank">
             View
           </DownloadLink>
