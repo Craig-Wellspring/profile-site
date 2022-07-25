@@ -10,7 +10,7 @@ html {
 
 body {
   // background-image: url(../resources/images/background.png) !important;
-  background-color: pink;
+  background-color: black;
   color: $textColor !important;
   font-family: 'Chakra Petch' !important;
 }
@@ -27,10 +27,20 @@ canvas {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  width: 20;
+  background: black;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $backgroundColor;
+  border-radius: 10px;
+  background: $panelColor;
 }
 ::-webkit-scrollbar-thumb {
+  background: $highlightColor;
+  box-shadow: inset 0 0 5px $backgroundColor;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
   background: $warningColor;
 }
 

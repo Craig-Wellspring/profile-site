@@ -7,7 +7,7 @@ const Card = styled.div`
   position: relative;
 
   width: 350px;
-  height: 300px;
+  height: 350px;
 
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ const CoverImage = styled.img`
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  object-fit: fill;
   clip-path: polygon(
     0 10px,
     10px 0,
