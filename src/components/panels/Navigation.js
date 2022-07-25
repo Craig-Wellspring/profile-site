@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
-import AccountPanel from './AccountPanel';
 
 const NavBar = styled.div`
   display: flex;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
   flex-direction: row;
   justify-content: space-between;
   width: 95%;
@@ -50,29 +51,25 @@ const RightContainer = styled.div`
   }
 `;
 
+const Title = styled.a``;
+
 const NavButton = styled.a`
   padding: 5px;
+  &:hover {
+    font-size: 120%;
+  }
 `;
 
 const NavIcon = styled.a`
   font-size: 150%;
   padding: 5px;
-`;
 
-const AccountPageButton = styled.button`
-  border: 0;
-  background-color: transparent;
-  color: ${colorScheme.textColor};
-  padding: 2px 5px;
+  &:hover {
+    font-size: 180%;
+  }
 `;
 
 export default function Navigation() {
-  const [showButton, setShowButton] = useState(false);
-
-  const accountButton = () => {
-    setShowButton(!showButton);
-  };
-
   return (
     <NavBar className="navigation">
       <LeftContainer>
@@ -87,9 +84,9 @@ export default function Navigation() {
         </NavButton>
       </LeftContainer>
       <CenterContainer>
-        <NavButton href="/#home" className="navlink">
+        <Title href="/#home" className="navlink">
           Craig Wellspring
-        </NavButton>
+        </Title>
       </CenterContainer>
       <RightContainer>
         <NavButton href="/#contact" className="navlink">
@@ -111,14 +108,6 @@ export default function Navigation() {
         >
           <i className="fab fa-linkedin" />
         </NavIcon>
-        <AccountPageButton
-          className="navlink"
-          type="button"
-          onClick={accountButton}
-        >
-          <i className="fas fa-sign-in-alt" />
-        </AccountPageButton>
-        {showButton && (<AccountPanel />)}
       </RightContainer>
     </NavBar>
   );

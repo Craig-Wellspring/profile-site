@@ -22,10 +22,10 @@ const Title = styled.div`
   border-bottom: 1px solid ${colorScheme.textColor};
 `;
 
-const Icon = styled.i`
-  font-size: 50px;
-  padding-bottom: 10px;
-`;
+// const Icon = styled.i`
+//   font-size: 50px;
+//   padding-bottom: 10px;
+// `;
 
 const Description = styled.div`
   padding: 10px;
@@ -58,7 +58,7 @@ export default function HobAccCard({ obj, setHobAccs }) {
         />
       ) : (
         <>
-          <Icon className={`fas fa-${obj.icon || 'ban'}`} />
+          {/* <Icon className={`fas fa-${obj.icon || 'ban'}`} /> */}
           <Title>{obj.name}</Title>
           <Description>{obj.desc}</Description>
           {userIsAdmin() && (

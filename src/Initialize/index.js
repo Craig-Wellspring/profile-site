@@ -7,8 +7,10 @@ import Routes from '../routes';
 
 const App = styled.div`
   text-align: center;
-  overflow-x: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default function Initialize() {
