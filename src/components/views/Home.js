@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Biography from '../panels/Biography';
 import Footer from '../panels/Footer';
-import HobAccPanel from '../panels/HobAccPanel';
+import HobbyPanel from '../panels/HobbyPanel';
 import Timeline from '../panels/Timeline';
 import Contact from '../panels/Contact';
 import Projects from '../panels/Projects';
@@ -32,7 +32,7 @@ export default function Home() {
       <Projects />
       <Technologies />
       <Timeline />
-      <HobAccPanel />
+      <HobbyPanel />
       <Contact />
       {/* <div style={{ height: '200px', width: '100%' }} /> */}
       <Footer />

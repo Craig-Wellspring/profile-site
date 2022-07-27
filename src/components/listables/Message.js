@@ -100,7 +100,6 @@ Message.propTypes = {
   msg: PropTypes.shape({
     name: PropTypes.string,
     message: PropTypes.string,
-    firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
   setMessages: PropTypes.func.isRequired,

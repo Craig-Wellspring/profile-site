@@ -1,0 +1,123 @@
+{
+  "Housekeeper": {
+      "id": "1",
+      "deployedLink": "https://house-keeper.netlify.app/",
+      "desc": "This app was designed to allow housemates to keep track of everything necessary to maintain a household and ease the communication of everyday tasks. This was my capstone project for the front-end portion of Nashville Software School.",
+      "features": [
+          "Allow users to share to-do lists",
+          "Real-time data updates between users",
+          "List customization",
+          "Household management settings"
+      ],
+      "githubLink": "https://github.com/Craig-Wellspring/housekeeper",
+      "images": [
+          "https://i.imgur.com/CDGBaSg.png",
+          "https://i.imgur.com/yRxApK4.png",
+          "https://i.imgur.com/GKoQUB7.png"
+      ],
+      "lessons": [
+          "Database subscription management in React",
+          "Randomly generated invite keys",
+          "Advanced styling techniques"
+      ],
+      "techs": [
+          "ReactJS",
+          "Sass",
+          "Supabase",
+          "PostgreSQL",
+          "Netlify"
+      ]
+  },
+  "MinibarTender": {
+      "id": "2",
+      "deployedLink": "https://minibartender.vercel.app/",
+      "desc": "An application for use in single bartender, single barback mini-bar setups which provides a POS for the bartender and inventory tracking and sales calculations for the barback. This application was developed for and is in use by a bar on Nashville's Lower Broadway.",
+      "features": [
+          "Operate multiple mini-bars",
+          "Point of Sale and change calculation",
+          "Inventory tracking",
+          "Session-based bar inventory",
+          "Use with or without POS function"
+      ],
+      "githubLink": "https://github.com/Craig-Wellspring/minibar-tender",
+      "images": [
+          "https://i.imgur.com/666gQxR.png"
+      ],
+      "lessons": [
+          "POS Design",
+          "Advanced user management",
+          "Multi-user operation"
+      ],
+      "techs": [
+          "ReactJS",
+          "CSS",
+          "Supabase",
+          "Google Authentication",
+          "Vercel"
+      ]
+  },
+  "Stuff Hoarder": {
+      "id": "3",
+      "deployedLink": "https://stuff-hoarder.netlify.app/",
+      "desc": "This application was developed as a member of a group of four collaborators in my bootcamp cohort. This project was an exercise in building applications with React in a team environment. It went through a full planning phase, used GitHub for project tracking and version control, and Netlify for web hosting.",
+      "features": [
+          "React CRUD functionality",
+          "Dynamic routing using react-router",
+          "Searching and filtering with dynamic results",
+          "Google Authentication",
+          "Google Firebase data management"
+      ],
+      "githubLink": "https://github.com/nss-evening-cohort-16/react-horder-react-repurposers",
+      "images": [
+          "https://i.imgur.com/U7UQKUW.jpg",
+          "https://i.imgur.com/xD4dp1L.jpg",
+          "https://i.imgur.com/Cs3Tgh0.jpg",
+          "https://i.imgur.com/yJhHb1M.jpg"
+      ],
+      "lessons": [
+          "Structuring complex React components",
+          "Using advanced state management to achieve live data filtering from a database",
+          "Integrating React packages for front-end features",
+          "Cooperating as a team to produce consistent styling and formatting across the application"
+      ],
+      "techs": [
+          "React JS",
+          "CSS/Sass",
+          "Google Firebase",
+          "Netlify"
+      ]
+  },
+  "Hip-Hop Pizza and Waangs": {
+      "id": "4",
+      "deployedLink": "https://git-some-hiphop-pizza-wangs.netlify.app/",
+      "desc": "This application was developed as a member of a group of three collaborators. It is a mock restaurant website where users can place orders and check for upcoming live shows. Administrator users can manage orders and view revenue from past orders.",
+      "features": [
+          "React CRUD functionality",
+          "Google Firebase database management",
+          "Google Authentication including Administrator users",
+          "Graphed data visualization",
+          "Data searching and filtering"
+      ],
+      "githubLink": "https://github.com/nss-evening-cohort-16/hip-hop-pizza-and-wangs-git-some",
+      "images": [
+          "https://i.imgur.com/eyxxHKe.jpg",
+          "https://user-images.githubusercontent.com/86667443/134777281-f32a7c1a-d028-4f46-b566-48ae060a5260.png",
+          "https://user-images.githubusercontent.com/86667443/134777285-e0e4a437-90b0-49c7-8eab-9e417ca0dd03.png",
+          "https://user-images.githubusercontent.com/86667443/134777289-63e41ed0-e26a-491d-8aa3-ca0d078d4ea8.png",
+          "https://user-images.githubusercontent.com/86667443/134777295-4243d14e-3d5d-49bb-b7e9-6a3f23f9a4a0.png",
+          "https://user-images.githubusercontent.com/86667443/134777299-2b88f741-796d-4e8d-af54-19ec578c9b9d.png"
+      ],
+      "lessons": [
+          "User and Administrator authentication",
+          "CRUD on multiple lists",
+          "Authenticated views and functionality",
+          "Vanilla JS data graphing using SVG"
+      ],
+      "techs": [
+          "Javascript, HTML, CSS",
+          "Google Firebase",
+          "Netlify",
+          "Figma, dbDiagram"
+      ]
+  }
+}

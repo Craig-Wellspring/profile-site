@@ -1,0 +1,8 @@
+{
+  "Applications": "VSCode, Unity, Blender, Krita",
+  "Dev Tools": "Git + GitHub + GitBash, Postman, Axios, Google Firebase, Supabase, Figma, dbDiagram, Netlify",
+  "Frameworks": "ReactJS, .NET, Sass, PostgreSQL",
+  "Languages": "JavaScript, HTML, CSS, C#",
+  "Libraries": "ThreeJS, Bootstrap,  FontAwesome, Semantic UI, Webpack",
+  "Platforms": "Windows"
+}

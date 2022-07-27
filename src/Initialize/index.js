@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import 'firebase/auth';
 import styled from 'styled-components';
 import SpaceScene from '../three/SpaceScene';
 import Navigation from '../components/panels/Navigation';

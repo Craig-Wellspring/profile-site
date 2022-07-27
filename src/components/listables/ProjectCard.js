@@ -79,38 +79,38 @@ export default function ProjectCard({ projectObj }) {
   return (
     <Card>
       <CoverImage
-        src={projectObj.images ? projectObj.images[0] : noImgFound}
+        src={projectObj[1].images ? projectObj[1].images[0] : noImgFound}
         alt="Project Preview"
         onClick={() => setShowOverlay(true)}
         className={showOverlay ? 'blur-filter' : ''}
       />
       {showOverlay && (
-      <Overlay onClick={() => setShowOverlay(false)}>
-        <Title>{projectObj.name}</Title>
-        <Description>{projectObj.desc}</Description>
-        <div>
-          <NavIcon
-            href={`/projects/${projectObj.firebaseKey}`}
-            className="navlink"
-          >
-            <i className="fas fa-eye" />
-          </NavIcon>
-          <NavIcon
-            href={projectObj.githubLink}
-            className="navlink"
-            target="_blank"
-          >
-            <i className="fas fa-code-branch" />
-          </NavIcon>
-          <NavIcon
-            href={projectObj.deployedLink}
-            className="navlink"
-            target="_blank"
-          >
-            <i className="fas fa-laptop" />
-          </NavIcon>
-        </div>
-      </Overlay>
+        <Overlay onClick={() => setShowOverlay(false)}>
+          <Title>{projectObj[0]}</Title>
+          <Description>{projectObj[1].desc}</Description>
+          <div>
+            <NavIcon
+              href={`/projects/${projectObj[1].id}`}
+              className="navlink"
+            >
+              <i className="fas fa-eye" />
+            </NavIcon>
+            <NavIcon
+              href={projectObj[1].githubLink}
+              className="navlink"
+              target="_blank"
+            >
+              <i className="fas fa-code-branch" />
+            </NavIcon>
+            <NavIcon
+              href={projectObj[1].deployedLink}
+              className="navlink"
+              target="_blank"
+            >
+              <i className="fas fa-laptop" />
+            </NavIcon>
+          </div>
+        </Overlay>
       )}
     </Card>
   );
@@ -118,8 +118,6 @@ export default function ProjectCard({ projectObj }) {
 
 ProjectCard.propTypes = {
   projectObj: PropTypes.shape({
-    firebaseKey: PropTypes.string,
-    name: PropTypes.string,
     images: PropTypes.arrayOf(PropTypes.string),
     desc: PropTypes.string,
     features: PropTypes.arrayOf(PropTypes.string),
