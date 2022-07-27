@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
-import techIcons from '../../JSON/listableData/techIcons.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
+import techIcons from '../../resources/JSON/listableData/techIcons.json';
 import { getTechData } from '../../api/data/tech-data';
 import Tech from '../listables/Tech';
 

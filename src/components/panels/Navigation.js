@@ -51,21 +51,30 @@ const RightContainer = styled.div`
   }
 `;
 
-const Title = styled.a``;
+const Title = styled.a`
+  transition: transform 0.1s ease-out;
+  &:hover {
+    transform: scale(1.15);
+    transition: transform 0.1s ease-in;
+  }
+`;
 
 const NavButton = styled.a`
   padding: 5px;
+  transition: transform 0.1s ease-out;
   &:hover {
-    font-size: 120%;
+    transform: scale(1.2);
+    transition: transform 0.1s ease-in;
   }
 `;
 
 const NavIcon = styled.a`
   font-size: 150%;
   padding: 5px;
-
+  transition: transform 0.1s ease-out;
   &:hover {
-    font-size: 180%;
+    transform: scale(1.2);
+    transition: transform 0.1s ease-in;
   }
 `;
 

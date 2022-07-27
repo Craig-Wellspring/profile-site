@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import TopButton from '../buttons/TopButton';
 
 const Body = styled.div`
   display: flex;
@@ -47,7 +46,7 @@ export default function Footer() {
           >
             React.js
           </a>
-          ,{' '}
+          , and{' '}
           <a
             href="https://sass-lang.com/"
             className="navlink"
@@ -56,15 +55,6 @@ export default function Footer() {
           >
             Sass
           </a>
-          , and{' '}
-          <a
-            href="https://firebase.google.com/"
-            className="navlink"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Firebase
-          </a>
           .
         </div>
         <NavButton href="/#contact" className="navlink">
@@ -72,7 +62,6 @@ export default function Footer() {
           Craig Wellspring
         </NavButton>
       </Body>
-      <TopButton />
     </div>
   );
 }

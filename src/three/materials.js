@@ -4,7 +4,7 @@ import moonImage from '../resources/images/moon.jpg';
 // import moonNormal from '../resources/images/moonNormal.png';
 import sunImage from '../resources/images/sun.jpg';
 import sunNormal from '../resources/images/sunNormal.jpg';
-import colorScheme from '../JSON/globalVars/colorScheme.json';
+import colorScheme from '../resources/JSON/globalVars/colorScheme.json';
 
 const moonTexture = new THREE.TextureLoader().load(moonImage);
 // const moonNormalTexture = new THREE.TextureLoader().load(moonNormal);

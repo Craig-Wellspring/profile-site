@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { userIsAdmin } from '../../api/auth';
 import { deleteHobAcc } from '../../api/data/hobacc-data';
 import HobAccForm from '../forms/HobAccForm';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 
 const Card = styled.div`
   width: 300px;
