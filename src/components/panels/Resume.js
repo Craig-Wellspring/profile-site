@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import resume from '../../resources/Craig_Wellspring_Resume.pdf';
 import resumePreview from '../../resources/images/ResumePreview.png';
 import cv from '../../resources/Craig_Wellspring_CV.pdf';

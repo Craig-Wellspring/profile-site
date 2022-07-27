@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 
 const Card = styled.div`
   position: relative;

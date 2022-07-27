@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
-import colorScheme from '../JSON/globalVars/colorScheme.json';
-import BackButton from '../components/buttons/BackButton';
-import TopButton from '../components/buttons/TopButton';
-import { deleteProject, getProject } from '../api/data/project-data';
-import { userIsAdmin } from '../api/auth';
-import ProjectForm from '../components/forms/ProjectForm';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
+import BackButton from '../buttons/BackButton';
+import { deleteProject, getProject } from '../../api/data/project-data';
+import { userIsAdmin } from '../../api/auth';
+import ProjectForm from '../forms/ProjectForm';
 
 const Content = styled.div`
   display: flex;
@@ -214,7 +213,6 @@ export default function ProjectDetails() {
           </NavIcon>
         </ButtonTray>
       </Body>
-      <TopButton />
     </Content>
   );
 }

@@ -3,7 +3,7 @@ import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import styled from 'styled-components';
 import TimelineEvent from '../listables/TimelineEvent';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import { getEvents } from '../../api/data/timeline-data';
 import TimelineEventForm from '../forms/TimelineEventForm';
 import { userIsAdmin } from '../../api/auth';

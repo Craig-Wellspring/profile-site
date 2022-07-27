@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import { createProject, updateProject } from '../../api/data/project-data';
 
 const Form = styled.form`

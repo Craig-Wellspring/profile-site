@@ -4,7 +4,7 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import styled from 'styled-components';
 import TimelineIcon from '../icons/TimelineIcon';
-import colorScheme from '../../JSON/globalVars/colorScheme.json';
+import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import { userIsAdmin } from '../../api/auth';
 import { deleteEvent } from '../../api/data/timeline-data';
 
