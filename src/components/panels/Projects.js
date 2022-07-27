@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { userIsAdmin } from '../../api/auth';
-import { getProjects } from '../../api/data/project-data';
-import ProjectForm from '../forms/ProjectForm';
 import ProjectCard from '../listables/ProjectCard';
+import PanelHeader from '../GenericComponents';
+import projects from '../../resources/JSON/listableData/project-data.json';
 
 const Body = styled.div`
   display: flex;
@@ -23,40 +22,15 @@ const ProjectPanel = styled.div`
 `;
 
 export default function Projects() {
-  const [showForm, setShowForm] = useState(false);
-
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    let isMounted = true;
-    getProjects().then((prjs) => {
-      if (isMounted) setProjects(prjs);
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
-    <div id="projects" style={{ scrollMarginTop: '50px' }}>
+    <div id="projects" style={{ scrollMarginTop: '100px' }}>
       <Body className="slide-in on-left">
-        <h2>Projects</h2>
+        <PanelHeader>Projects</PanelHeader>
         <ProjectPanel>
-          {projects.map((project) => (
-            <ProjectCard key={project.firebaseKey} projectObj={project} />
+          {Object.entries(projects).map((project) => (
+            <ProjectCard key={project.id} projectObj={project} />
           ))}
         </ProjectPanel>
-        {showForm && (
-        <ProjectForm setShowForm={setShowForm} setProjects={setProjects} />
-        )}
-        {userIsAdmin() && !showForm && (
-        <button
-          type="button"
-          className="blue-button"
-          onClick={() => setShowForm(true)}
-        >
-          <i className="fas fa-plus" />
-        </button>
-        )}
       </Body>
     </div>
   );

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import BackButton from '../buttons/BackButton';
-import { deleteProject, getProject } from '../../api/data/project-data';
-import { userIsAdmin } from '../../api/auth';
-import ProjectForm from '../forms/ProjectForm';
+import projects from '../../resources/JSON/listableData/project-data.json';
 
 const Content = styled.div`
   display: flex;
@@ -60,8 +58,7 @@ const Body = styled.div`
   padding: 20px;
 `;
 
-const Images = styled.div`
-`;
+const Images = styled.div``;
 const Image = styled.img`
   max-width: 800px;
   max-height: 600px;
@@ -98,42 +95,25 @@ const initialState = {
   lessons: [],
   githubLink: '',
   deployedLink: '',
-  firebaseKey: '',
 };
 
 export default function ProjectDetails() {
   const { projectKey } = useParams();
   const [project, setProject] = useState(initialState);
-  const history = useHistory();
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
-    getProject(projectKey).then((prj) => {
-      if (isMounted) setProject(prj);
-    });
-    return () => {
-      isMounted = false;
-    };
+    const prjData = Object.entries(projects).find((prj) => prj[1].id === projectKey);
+
+    setProject(prjData);
   }, []);
-
-  const handleEdit = () => {
-    setShowForm(true);
-  };
-
-  const handleDelete = () => {
-    deleteProject(projectKey).then(() => {
-      history.push('/#projects');
-    });
-  };
 
   return (
     <Content>
-      <Header>{project.name}</Header>
+      <Header>{project[0]}</Header>
       <Body>
         <Images>
           <Carousel showThumbs={false}>
-            {project.images?.map((img) => (
+            {project[1].images?.map((img) => (
               <Image key={img} src={img} alt="Project Image" />
             ))}
           </Carousel>
@@ -141,20 +121,20 @@ export default function ProjectDetails() {
 
         <Section className="section">
           <SubHeader>Project Synopsis</SubHeader>
-          {project.desc}
+          {project[1].desc}
         </Section>
 
         <SubSection>
           <Section className="section">
             <SubHeader>Features</SubHeader>
-            {project.features?.map((feature) => (
+            {project[1].features?.map((feature) => (
               <li key={feature}>{feature}</li>
             ))}
           </Section>
 
           <Section className="section">
             <SubHeader>Technologies Utilized</SubHeader>
-            {project.techs?.map((tech) => (
+            {project[1].techs?.map((tech) => (
               <li key={tech}>{tech}</li>
             ))}
           </Section>
@@ -162,50 +142,22 @@ export default function ProjectDetails() {
 
         <Section className="section">
           <SubHeader>Lessons Learned</SubHeader>
-          {project.lessons?.map((lesson) => (
+          {project[1].lessons?.map((lesson) => (
             <li key={lesson}>{lesson}</li>
           ))}
         </Section>
 
-        {showForm && (
-          <ProjectForm
-            projectObj={project}
-            setShowForm={setShowForm}
-            setProject={setProject}
-          />
-        )}
-        {userIsAdmin() && (
-          <ButtonTray className="section" style={{ gap: '10px' }}>
-            {!showForm && (
-              <button
-                type="button"
-                className="blue-button"
-                onClick={handleEdit}
-              >
-                <i className="fas fa-edit" />
-              </button>
-            )}
-            <button
-              type="button"
-              className="orange-button"
-              onClick={handleDelete}
-            >
-              <i className="fas fa-trash" />
-            </button>
-          </ButtonTray>
-        )}
-
         <ButtonTray className="section">
           <BackButton />
           <NavIcon
-            href={project.githubLink}
+            href={project[1].githubLink}
             className="navlink"
             target="_blank"
           >
             <i className="fas fa-code-branch" />
           </NavIcon>
           <NavIcon
-            href={project.deployedLink}
+            href={project[1].deployedLink}
             className="navlink"
             target="_blank"
           >

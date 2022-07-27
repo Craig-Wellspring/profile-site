@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
 import techIcons from '../../resources/JSON/listableData/techIcons.json';
-import { getTechData } from '../../api/data/tech-data';
+import techs from '../../resources/JSON/listableData/tech-data.json';
 import Tech from '../listables/Tech';
+import PanelHeader from '../GenericComponents';
 
 const Body = styled.div`
   display: flex;
@@ -54,25 +55,14 @@ const Icon = styled.i`
 `;
 
 export default function Technologies() {
-  const [techs, setTechs] = useState([]);
-  useEffect(() => {
-    let isMounted = true;
-    getTechData().then((data) => {
-      if (isMounted) setTechs(data);
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
-    <div id="technologies" style={{ scrollMarginTop: '50px' }}>
+    <div id="technologies" style={{ scrollMarginTop: '100px' }}>
       <div className="slide-in on-left">
-        <h2>Technologies</h2>
+        <PanelHeader>Technologies</PanelHeader>
         <Body>
           <TechsPanel className="section">
-            {techs.map((entry) => (
-              <Tech key={entry[0]} tech={entry} setTechs={setTechs} />
+            {Object.entries(techs).map((entry) => (
+              <Tech key={entry[0]} tech={entry} />
             ))}
           </TechsPanel>
 

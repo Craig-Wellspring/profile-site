@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { currentUID, currentUser } from '../../api/auth';
-import { createMessage } from '../../api/data/message-data';
 
 const Messenger = styled.form`
   display: flex;
@@ -17,19 +15,6 @@ const Messenger = styled.form`
 export default function MessageSender() {
   const [input, setInput] = useState({ name: '', message: '' });
 
-  const checkUser = () => {
-    const user = currentUser()?.displayName;
-    if (!user) {
-      window.setTimeout(checkUser, 50);
-    } else {
-      setInput(() => ({ name: user }));
-    }
-  };
-
-  useEffect(() => {
-    checkUser();
-  }, []);
-
   const handleChange = (e) => {
     setInput((prevState) => ({
       ...prevState,
@@ -39,7 +24,7 @@ export default function MessageSender() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createMessage({ ...input, uid: currentUID() || 'Nonuser' });
+    console.warn(input);
     setInput((prevState) => ({
       name: prevState.name,
       message: '',

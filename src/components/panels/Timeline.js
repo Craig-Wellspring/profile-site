@@ -1,77 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import styled from 'styled-components';
 import TimelineEvent from '../listables/TimelineEvent';
 import colorScheme from '../../resources/JSON/globalVars/colorScheme.json';
-import { getEvents } from '../../api/data/timeline-data';
-import TimelineEventForm from '../forms/TimelineEventForm';
-import { userIsAdmin } from '../../api/auth';
-
-const ButtonContainer = styled.div`
-  @media only screen and (max-width: 1170px) {
-    display: flex;
-    width: 100%;
-    padding-left: 1.5%;
-  }
-`;
+import PanelHeader from '../GenericComponents';
+import events from '../../resources/JSON/listableData/timeline-data.json';
 
 export default function Timeline() {
-  const [showForm, setShowForm] = useState(false);
-  const [editEventObj, setEditEventObj] = useState({});
-
-  const [events, setEvents] = useState([]);
-  useEffect(() => {
-    let isMounted = true;
-    getEvents().then((eventList) => {
-      if (isMounted) setEvents(eventList);
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
     <div
       id="timeline"
       className="slide-in on-left"
       style={{
-        width: '90%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', scrollMarginTop: '50px',
+        width: '90%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        scrollMarginTop: '100px',
       }}
     >
-      <h2>Timeline</h2>
+      <PanelHeader>Timeline</PanelHeader>
       <VerticalTimeline lineColor={colorScheme.textColor}>
-        {events.map((event) => (
+        {Object.entries(events).map((event) => (
           <TimelineEvent
-            key={event.firebaseKey}
+            key={event[0]}
             iconTag={event.iconTag}
             event={event}
-            setEvents={setEvents}
-            setShowForm={setShowForm}
-            setEditEventObj={setEditEventObj}
           />
         ))}
       </VerticalTimeline>
-      <h2>Present</h2>
-      {showForm && (
-        <TimelineEventForm
-          eventObj={editEventObj}
-          setEditEventObj={setEditEventObj}
-          setShowForm={setShowForm}
-          setEvents={setEvents}
-        />
-      )}
-      {userIsAdmin() && !showForm && (
-        <ButtonContainer>
-          <button
-            type="button"
-            className="blue-button"
-            onClick={() => setShowForm(true)}
-          >
-            <i className="fas fa-plus" />
-          </button>
-        </ButtonContainer>
-      )}
+      <PanelHeader>Present</PanelHeader>
     </div>
   );
 }

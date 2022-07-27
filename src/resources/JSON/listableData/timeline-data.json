@@ -1,0 +1,62 @@
+{
+  "Birth": {
+      "date": "January 1991",
+      "iconTag": "birthday-cake",
+      "location": "Aurora, NE",
+      "textContent": "First day on Earth"
+  },
+  "Started Coding": {
+      "date": "2006",
+      "iconTag": "code",
+      "location": "Quincy, IL",
+      "textContent": "Began modding games in high school and discovered a passion for coding."
+  },
+  "Graduated High School": {
+      "date": "May 2008",
+      "iconTag": "graduation-cap",
+      "location": "Quincy, IL",
+      "textContent": "Met High School requirements one year early and graduated as a Junior."
+  },
+  "Started Cooking Career": {
+      "date": "July 2008",
+      "iconTag": "utensils",
+      "location": "St. Louis, MO",
+      "textContent": "Moved away from home, got an apartment and began working in kitchens."
+  },
+  "Moved to Nashville": {
+      "date": "February 2015",
+      "iconTag": "truck-moving",
+      "location": "Nashville, TN",
+      "textContent": "Moved back in with parents to start over and find a new career"
+  },
+  "Started Massage Therapy Job": {
+      "date": "June 2016",
+      "iconTag": "spa",
+      "location": "Nashville, TN",
+      "textContent": "Completed 1 year training course. Passed TN Licensure Examination."
+  },
+  "Married": {
+      "date": "May 2019",
+      "iconTag": "ring",
+      "location": "Franklin, TN",
+      "textContent": "Married the love of my life"
+  },
+  "Started Appliance Repair Job": {
+      "date": "July 2019",
+      "iconTag": "wrench",
+      "location": "Nashville, TN",
+      "textContent": "Installing and repairing laundry equipment in the Greater Nashville area"
+  },
+  "Started Barbacking Job": {
+      "date": "February 2021",
+      "iconTag": "beer",
+      "location": "Nashville, TN",
+      "textContent": "Re-stocking the beer in a bar on Lower Broadway"
+  },
+  "Coding Bootcamp": {
+      "date": "July 2021",
+      "iconTag": "code",
+      "location": "Nashville, TN",
+      "textContent": "Full-stack web development course at Nashville Software School"
+  }
+}

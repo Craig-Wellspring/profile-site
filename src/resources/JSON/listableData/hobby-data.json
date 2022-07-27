@@ -1,0 +1,34 @@
+{
+  "Massage Therapy": {
+      "desc": "Licensed - 600 Hour Training Program",
+      "icon": ""
+  },
+  "Indie Game Development": {
+      "desc": "All aspects of game design and modding",
+      "icon": ""
+  },
+  "Brazilian Jiu Jitsu": {
+      "desc": "Blue Belt - Six years of training",
+      "icon": ""
+  },
+  "MiniFig Painting": {
+      "desc": "Tabletop wargame figurines",
+      "icon": ""
+  },
+  "Cooking": {
+      "desc": "Ten years cooking professionally",
+      "icon": ""
+  },
+  "Dog Training": {
+      "desc": "Two well trained dogs",
+      "icon": ""
+  },
+  "Bass Guitar": {
+      "desc": "Occasional practice",
+      "icon": ""
+  },
+  "Gardening": {
+      "desc": "Growing vegetables and mushrooms",
+      "icon": ""
+  }
+}

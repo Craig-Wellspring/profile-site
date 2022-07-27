@@ -49,7 +49,6 @@ const ButtonContainer = styled.div`
 const initialState = {
   name: '',
   message: '',
-  firebaseKey: '',
 };
 
 export default function MessageForm({ msg, setShowForm, setMessages }) {
@@ -107,7 +106,6 @@ MessageForm.propTypes = {
   msg: PropTypes.shape({
     name: PropTypes.string,
     message: PropTypes.string,
-    firebaseKey: PropTypes.string,
   }).isRequired,
   setShowForm: PropTypes.func.isRequired,
   setMessages: PropTypes.func.isRequired,
