@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import about from '../../resources/JSON/listableData/about-data.json';
 import PanelHeader from '../GenericComponents';
+// import Podcast from './Podcast';
 
 const Bio = styled.div`
   text-align: left;
@@ -22,6 +23,7 @@ export default function Biography() {
           <BioInfo>{about.bio}</BioInfo>
         </Bio>
       </div>
+      {/* <Podcast /> */}
     </div>
   );
 }
