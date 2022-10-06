@@ -86,26 +86,31 @@ const NavIcon = styled.a`
   padding: 10px;
 `;
 
-const initialState = {
-  name: '',
-  images: [],
-  desc: '',
-  features: [],
-  techs: [],
-  lessons: [],
-  githubLink: '',
-  deployedLink: '',
-};
+const initialState = [
+  'Not Found',
+  {
+    name: '',
+    images: [],
+    desc: '',
+    features: [],
+    techs: [],
+    lessons: [],
+    githubLink: '',
+    deployedLink: '',
+  },
+];
 
 export default function ProjectDetails() {
   const { projectKey } = useParams();
   const [project, setProject] = useState(initialState);
 
   useEffect(() => {
-    const prjData = Object.entries(projects).find((prj) => prj[1].id === projectKey);
+    const prjData = Object.entries(projects).find(
+      (prj) => prj[1].id === projectKey,
+    );
 
     setProject(prjData);
-  }, []);
+  }, [projectKey]);
 
   return (
     <Content>
